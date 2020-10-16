@@ -13,3 +13,13 @@ tags:
 An **algorithm** is any well-defined computational procedure.
 A **data structure** is a way to store and organize data in order to facilitate
 access and modifications.
+
+## 2. Algorithms as a technology
+
+Since computers are not infinitely fast,
+and memory is not free,
+**efficient** algorithms stand out.
+A usual measure of efficiency is speed.
+
+Algorithms are important on contemporary computers in light of other advanced
+technologies.
