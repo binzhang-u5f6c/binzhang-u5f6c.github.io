@@ -10,50 +10,39 @@ tags:
 
 ## 1. Basic commands
 
-Navigating the filesystem & handling directories and files
+Navigate the filesystem & manipulate directories and files.
 
-|name  |      description|
-|------|-----------------|
-|cd    | change directory|
-|ls    |             list|
-|touch |  create new file|
-|cp    |             copy|
-|ln    |          linking|
-|mv    |             move|
-|rm    |           remove|
-|mkdir | create directory|
+|name  |        description|
+|------|-------------------|
+|cd    |   change directory|
+|ls    |               list|
+|cp    |               copy|
+|mv    |               move|
+|rm    |             remove|
+|ln    |       create links|
+|mkdir | create directories|
 
-View the contents of files
+View the contents of files.
 
 |name|                    description|
 |----|-------------------------------|
 |file|            determine file type|
 |cat | view entire contents of a file|
-|more| view entire contents of a file|
 |less| view entire contents of a file|
 |head|       view top lines of a file|
 |tail|    view bottom lines of a file|
 
-Monitoring programs and disk space
+Monitor system status.
 
-|name |                         description|
-|-----|------------------------------------|
-|ps   |                     display process|
-|top  |                     display process|
-|kill |             send signals to process|
-|mount|               mount storage devices|
-|df   | report file system disk space usage|
-|du   |           estimate file space usage|
+|name    |                         description|
+|--------|------------------------------------|
+|ps      |               show processes status|
+|top     |   show processes status dynamically|
+|free    |                   show memory usage|
+|df      | report file system disk space usage|
+|du      |           estimate file space usage|
 
-Working with data files
-
-|name |               description|
-|-----|--------------------------|
-|sort |                sort lines|
-|grep | pattern matching by lines|
-|tar  |                   archive|
-
-Command-related
+Use commands.
 
 |name   |                      description|
 |-------|---------------------------------|
@@ -63,15 +52,196 @@ Command-related
 |history|             show command history|
 |alias  |        define or display aliases|
 
-## 2. Shell
+## 2. Run commands in shell
 
-|name                |                                         description|
-|--------------------|----------------------------------------------------|
-|command1; command2  |                  execute commands one after another|
-|(command1; command2)| process list:create a subshell and execute commands|
-|command &           |                       execute command in background|
-|jobs                |                     display processes in background|
-|coproc command      | create a subshell in background and execute command|
+### 2.1 IO redirection
+
+Redirect output.
+
+```bash
+# overwriting the file
+command > file
+# appending output to the file
+command >> file
+# suppressing output.
+command > /dev/null
+```
+
+Redirect input.
+
+```bash
+command < inputfile
+# inline input redirection
+command << marker
+data
+marker
+```
+
+There is no dedicated redirection operator for redirecting errors.
+We have to refer to its **file descriptor**.
+The bash shell reserves the first three file descriptors as
+STDIN (0), STDOUT (1) and STDERR (2).
+
+```bash
+command 2> file
+```
+
+Redirect both output and errors.
+
+```bash
+command 1> file1 2> file2
+command &> file
+```
+
+### 2.2 Pipes
+
+```bash
+command1 | command2
+```
+
+Use `tee` to construct a T pipe.
+
+```bash
+# the output of command1 will be saved to file and passed to command2
+command1 | tee file | command2
+```
+
+Some commands can be a filter in pipes.
+
+|name |                     description|
+|-----|--------------------------------|
+|sort |                      sort lines|
+|uniq |               remove duplicates|
+|tr   |        transliterate characters|
+|grep |       pattern matching by lines|
+|sed  |                   stream editor|
+|awk  | pattern scanning and processing|
+|wc   |                      word count|
+
+### 2.3 Expansion
+
+Wildcards.
+
+|Wildcard     | Meaning                            |
+|-------------|------------------------------------|
+|\*           | match any characters               |
+|?            | match any single character         |
+|[characters] | match any character in brackets    |
+|[!characters]| match any character not in brackets|
+|[[:class:]]  | match any character in class       |
+
+Class include `[[:alnum:]]`, `[[:alpha:]]`, `[[:digit:]]`, `[[:lower:]]`
+and `[[:upper:]]`.
+
+Pathname expansion.
+
+```bash
+# list all txt files
+ls *.txt
+# tilde for home directory
+cd ~
+```
+
+Arithmetic expansion.
+It only supports integer arithmetic.
+
+```bash
+$((expression))
+# the result is 2
+echo $((5/2))
+```
+
+Brace expansion.
+
+```bash
+# the result is "file1 file2 file3"
+echo file{1,2,3}
+# use range
+echo file{1..3}
+# nested brace expansion
+# the result is "file13 file14 file23 file 24"
+echo file{1{3,4},2{3,4}}
+```
+
+Variable expansion.
+
+```bash
+$var
+```
+
+Command substitution.
+
+```bash
+$(command)
+`command`
+```
+
+Double quoting.
+
+```bash
+# all characters are treated as ordinary characters
+# except dollar sign, backslash and backquote
+echo "~ will not be expanded as home directory"
+echo "$var still show the value of var"
+echo "backslash is used to escape special characters such as \$"
+```
+
+Single quoting.
+
+```bash
+# suppress all expansion
+echo '$(ls)'
+```
+
+### 2.4 Jobs
+
+Run commands one after one.
+
+```bash
+command1; command2
+```
+
+Commands are run in foreground mode by default.
+Run commands in background mode.
+
+```bash
+# run in background
+command &
+# show jobs launched from current terminal
+jobs
+# return the job to foreground
+fg %n
+```
+
+If you exit the terminal session,
+all jobs, even in background mode, will be interrupted.
+To avoid this, run scripts without a hang-up.
+
+```bash
+nohup command &
+```
+
+The `nohup` command disassociates the process from the terminal,
+thus it redirects STDOUT and STDERR to `nohup.out` file.
+Be careful if you run multiple commands using `nohup`.
+All output is appended to `nohup.out`.
+
+Use Ctrl+C to interrupt the current-running job.
+Use Ctrl+Z to stop the current running job.
+Usually we use Ctrl+Z to move the current-running job to background.
+
+```bash
+command
+# stop by Ctrl+Z
+# show the job number
+jobs
+# move to background
+bg %n
+# or return to foreground
+fg %n
+```
+
+Use `kill` and `killall` to send other signals to processes.
 
 ## 3. Environment variables
 
@@ -97,15 +267,6 @@ Add new path.
 
 ```bash
 PATH=$PATH:/your/new/path
-```
-
-Define an array variable.
-
-```bash
-array_name=(element1 element2 element3)
-array_name[1]=element4
-echo ${array_name[0]}
-echo ${array_name[*]}
 ```
 
 ## 4. File permissions
@@ -152,13 +313,16 @@ COW filesystems include ZFS and Btrfs.
 
 |name |                         description|
 |-----|------------------------------------|
+|mount|               mount storage devices|
 |fdisk|     manipulate disk partition table|
 |mkfs |            build a Linux filesystem|
-|fsch | check and repair a Linux filesystem|
+|fsck | check and repair a Linux filesystem|
 
 Linux **Logical Volume Manager (LVM)** is used for managing logical volumes.
 
-## 6. Installing software
+## 6. Utilities in Linux world
+
+### 6.1 Package management system
 
 Use **packege management system** to install software.
 
@@ -169,6 +333,33 @@ Use **packege management system** to install software.
 |OpenSuse           |                    zypper|
 |Archlinux          |                    pacman|
 |Gentoo             |                    emerge|
+
+### 6.2 Network
+
+|name |                   description|
+|-----|------------------------------|
+|ping | verify the network connection|
+|wget |              network download|
+|curl |                transfer a URL|
+|ssh  |                  remote login|
+|scp  |              secure file copy|
+|sftp |          secure file transfer|
+
+### 6.3 Archive
+
+|name |                               description|
+|-----|------------------------------------------|
+|tar  |                         archiving utility|
+|gzip |                            compress files|
+|rsync| remote file and directory synchronization|
+
+### 6.4 Find files
+
+|name  |            description|
+|------|-----------------------|
+|touch |  change file timestamp|
+|find  |             find files|
+|xargs | transfer input to args|
 
 ## APPENDIX
 

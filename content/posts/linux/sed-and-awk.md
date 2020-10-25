@@ -1,16 +1,14 @@
 ---
 title: "Sed and Awk"
 date: 2020-09-30T21:50:47+08:00
-draft: true
+draft: false
 toc: true
 mathjax: false
 tags:
   - linux
 ---
 
-## 1. Basic sed
-
-The format for using `sed`:
+## 1. Sed
 
 ```bash
 # read from stdin and execute command
@@ -20,17 +18,16 @@ sed 'command'
 sed 'command' filename
 
 # read from a file and execute multiple commands
-sed -e 'command1; command2' filename
-sed -e '
+sed 'command1; command2' filename
+sed '
 command1
 command2' filename
-
-# read from a file and execute commands in a script
-sed -f scriptname.sed filename
 ```
 
+### 1.1 Address and pattern
+
 You can specify lines to which the command is applied using address.
-The address can be a line number `2`, a range of lines `2,3`.
+The address can be a line number `2`, or a range of lines `2,3`.
 
 ```bash
 sed '2,3command'
@@ -46,6 +43,8 @@ You can also filter lines using text pattern.
 sed '/pattern/command'
 ```
 
+### 1.2 Basic edition
+
 Substituting command.
 
 ```bash
@@ -55,7 +54,7 @@ sed 's/string1/string2/[flag]' file
 The command only replace the first occurrence in each line.
 Using flag `g` to replace all occurrences.
 
-Delete command is usually in conjunction with address or text pattern.
+Deleting command is usually in conjunction with address or text pattern.
 
 ```bash
 sed '2d' filename
@@ -110,11 +109,68 @@ Read and append the content from a file.
 sed '[address]r filename2' filename1
 ```
 
+### 1.3 Yank and paste
+
+The buffer area that holds the text to be processed is called
+**pattern space**.
+Sed utilizes another buffer area called **holding space**
+for yanking and pasting.
+
+Copy command.
+
+```bash
+sed '[address]h'
+# append the content to holding space
+sed '[address]H'
+```
+
+Paste command.
+
+```bash
+sed '[address]g'
+# append the content to pattern space
+sed '[address]G'
+```
+
+Exchange command.
+
+```bash
+# exchange the content
+sed '[address]x'
+```
+
+### 1.4 Negating commands
+
+```bash
+# not paste
+sed -n '[address]!p'
+```
+
+### 1.5 Multiline commands
+
+Navigate the next line.
+
+```bash
+sed -n '[address]{n;p}'
+```
+
+Combine the next line.
+
+```bash
+sed -n '[address]{N;p}'
+```
+
+Only delete/print the first line.
+
+```bash
+sed '[address]{N;D}'
+sed -n '[address]{N;P}'
+```
+
 ## 2. Basic awk
 
 The awk program is similar to sed, but more powerful.
-It read the contents line by line and executes script.
-Rather than just editor commands, awk provides a programming language.
+It reads the contents line by line and executes script.
 
 ```bash
 # read from stdin and execute command
@@ -124,14 +180,21 @@ awk '{script}'
 awk '{script}' filename
 
 # read from a file and execute multiple commands
-awk 'script1; script2' filename
+awk '{script1; script2}' filename
 awk '{
 script1
 script2}' filename
-
-# read from a file and execute {script}s in a script
-awk -f scriptname.awk filename
 ```
+
+Some scripts can be run before or after processing data.
+
+```bash
+awk 'BEGIN {script1}
+{script2}
+END {script3}'
+```
+
+### 2.1 Use variables
 
 One of the primary features of awk is to manipulate data in the text file.
 Awk assigns `$0` to represent the entire line,
@@ -145,30 +208,70 @@ such as tab or space characters.
 awk '{print $1}'
 ```
 
-You can use a different field separation character by `-F` option.
+You can use a different field separation character by changing the built-in
+variable `FS`.
 
 ```bash
-# print the first data field separated by ':' of each line
-awk -F: '{print $1}'
+# print the first data field separated by "," of each line
+awk 'BEGIN {FS=","}
+{print $1}'
 ```
 
+|variable |                        description|
+|---------|-----------------------------------|
+|FS       |   input field separation character|
+|RS       |  input record separation character|
+|OFS      |  output field separation character|
+|ORS      | output record separation character|
+
+### 2.2 Use patterns
+
 Similar to sed, you can filter lines using text pattern.
+But awk provides more features.
 
 ```bash
 awk '/pattern/{script}'
 ```
 
-Some scripts can be run before or after processing data.
+Filter in a specific data field.
 
 ```bash
-awk 'BEGIN {script1}
-{script2}
-END {script3}'
+# only filter the text pattern in the data field 1
+awk '$1 ~ /pattern/{script}'
 ```
+
+### 2.3 Conditional expressions
+
+Operations include `==`, `<=`, `<`, `>=` and `>`.
+
+```bash
+awk '$1 == "data"{script}'
+```
+
+### 2.4 Formatted printing
+
+Awk provides a formatted printing command `printf`.
+It performs the same way with `printf` in C programming.
+
+```bash
+awk '{printf "%d " $1}'
+awk '{printf "%.2f " $2}'
+awk '{printf "%12s" $3}'
+```
+
+### 2.5 Discussion
+
+Rather than just editor commands, awk is a programming language.
+As far as I'm concerned,
+features like structured statements, functions are not necessary.
+If the task is so complicated that loops or functions are needed,
+it would better to use other general-purpose languages,
+such as Perl/Ruby/Python.
+Thus the section about awk stops here.
 
 ## 3. Regular expressions
 
-Regular expressions are keys to advanced sed and awk.
+Regular expressions are keys to sed and awk.
 A regular expression is a pattern template you define to filter text.
 
 ### 3.1 Basic regular expressions

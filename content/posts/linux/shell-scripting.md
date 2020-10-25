@@ -8,9 +8,9 @@ tags:
   - linux
 ---
 
-## 1. Basic Scripting Building
+## 1. Basic scripting building
 
-### 1.1 Displaying Messages
+### 1.1 Display messages
 
 Use `echo` to display messages.
 
@@ -18,93 +18,50 @@ Use `echo` to display messages.
 echo "Hello world!"
 ```
 
-### 1.2 Using Variables
+### 1.2 Use variables
 
 Define and reference a variable.
 
 ```bash
 val=10
+echo ${val}
+```
+
+In most cases, the curly brackets can be ignored.
+
+```bash
+val=str
+# ignore curly brackets
 echo $val
+# ignoring curly brackets will lead to error
+echo ${val}ing
 ```
 
-Command substitution.
+Define and reference an array.
 
 ```bash
-val1=`ls`
-val2=$(pwd)
+a[0]=1
+echo ${a[0]}
+# or
+a = (1 2 3)
+echo ${a[0]}
 ```
 
-### 1.3 Redirecting Input and Output
+**Note**: bash treats all values as string.
 
-Output redirection.
-
-```bash
-# overwriting the file
-command > outputfile
-# appending output to the file
-command >> outputfile
-```
-
-Input redirection
-
-```bash
-command < inputfile
-# inline input redirection
-command << marker
-data
-marker
-```
-
-### 1.4 Pipes
-
-```bash
-command1 | command2
-```
-
-### 1.5 Performing Math
-
-The bash shell mathematical operators support only integer.
-
-```bash
-# the value of val would be 1
-val=$[5/4]
-```
-
-Use external command, such as Python,
-to support full floating-point arithmetic.
-
-```bash
-val=$(python << EOF
-import math
-area=math.pi * (2 ** 2)
-print(area)
-EOF
-)
-```
-
-### 1.6 Existing the Script
+### 1.3 Exit
 
 Use `echo $?` to check the exit status.
 Use `exit N` to return the status `N`.
 
-## 2. Conditional Statements
+## 2. Conditional statements
 
-### 2.1 Using if-then Statements
-
-There are two forms of the if-then statement.
-The second one is more popular.
+### 2.1 if-then statements
 
 ```bash
-# form 1
-if command
-then
-    commands
-else
-    commands
-fi
-
-# form 2
 if command; then
+    commands
+elif command; then
     commands
 else
     commands
@@ -115,27 +72,17 @@ The commands under the `then` statement will be executed
 only if the command after `if` statement is a valid command
 and the exit status is zero.
 
-### 2.2 Testing Conditions
+### 2.2 Testing conditions
 
 Besides commands, bash provides a way to test conditions.
-Note that there is a space after the first bracket and
-a space before the last bracket.
+There are three types of conditions:
 
-```bash
-if [ condition ]; then
-    commands
-fi
-```
+* numeric comparisons
+* string comparisons
+* file comparisons
 
-There are three types of condition:
-
-* numeric comparison
-* string comparison
-* file comparison
-
-However, the double parentheses command provides advanced features for numeric
-comparison, including most operators in C and `**` for exponentiation.
-It'd be better to use the double parentheses command rather than the brackets.
+Use double parentheses for numeric comparisons,
+including most operators in C and `**` for exponentiation.
 
 ```bash
 if (( expression )); then
@@ -143,9 +90,8 @@ if (( expression )); then
 fi
 ```
 
-And for string comparisons,
-the double brackets command provides powerful pattern matching feature.
-It is the better choice.
+Use double square brackets for string comparisons,
+including normal string operators and `=~` for regular expression.
 
 ```bash
 if [[ comparison ]]; then
@@ -155,7 +101,12 @@ fi
 
 The file comparisons are the most powerful and most used comparisons in shell
 scripting.
-They allow you to test the status of files and directories.
+
+```bash
+if [ condition ]; then
+    commands
+fi
+```
 
 | Comparison      | Description                                            |
 |-----------------|--------------------------------------------------------|
@@ -173,10 +124,7 @@ They allow you to test the status of files and directories.
 
 In addition, you can combine conditions using AND (&&) and OR (\|\|).
 
-### 2.3 Using case Statements
-
-The bash provides a elif statement.
-However, the case statement is better.
+### 2.3 case statements
 
 ```bash
 case variable in
@@ -192,33 +140,36 @@ case variable in
 esac
 ```
 
-## 3. Looping Statements
+## 3. Looping statements
 
-### 3.1 Using for Statements
+### 3.1 for statements
 
 ```bash
-for var in list; do
+for var in words; do
     commands
 done
 ```
 
-Use the backslash to escape the some special character.
-Use double quotation marks to include spaces in one value.
-The list can also be the output of a command or wildcards.
+We can create words by brace expansion, wildcards or command substitution.
 
 ```bash
-# output of a command
-for var in $(command); do
+# brace expansion
+for var in {a..z}; do
     commands
 done
 
 # wildcards
-for var in *.py
+for var in *.txt; do
+    commands
+done
+
+# command substitution
+for var in $(command); do
     commands
 done
 ```
 
-Change the value of `IFS` to change separator temporarily.
+We can change the value of `IFS` to change separator temporarily.
 
 ```bash
 IFS.OLD=$IFS
@@ -230,12 +181,12 @@ IFS=$IFS.OLD
 Bash also provides the C-style `for` statements.
 
 ```bash
-for (( variable assignment ; condition ; iteration process )); do
+for (( expression1; expression2; expression3 )); do
     commands
 done
 ```
 
-### 3.2 Using while and until Statements
+### 3.2 while and until statements
 
 ```bash
 # while
@@ -249,52 +200,53 @@ until command; do
 done
 ```
 
-### 3.3 Control the Loop
+### 3.3 Control the loop
 
 Two commands are used to control what happens inside of a loop:
 
 * `break`
 * `continue`
 
-`break n` can indicates the level of the loop to break out of.
+`break n` can indicate the level of the loop to break out of.
 By default n is 1.
 
-### 3.4 Processing the Output of a Loop
+### 3.4 Process the output of a loop
 
 You can redirect or pipe the output of a loop within the script.
 
 ```bash
 # redirect
-for var in list; do
+for var in words; do
     commands
 done > output.txt
 
 # pipe
-for var in list; do
+for var in words; do
     commands
 done | grep txt
 ```
 
-## 4. Handling User Input
+## 4. Handle input
 
-### 4.1 Passing Parameters
+### 4.1 Command line parameters
 
-Use `$1`, `$2` and so on to refer to the command line parameters.
-If the number is larger than 9, use `${n}`.
-`$0` stands for the script name.
-`$#` contains the number of command line parameters.
-`${!#}` contains the last parameter.
+* Use `$0` to refer to the script name.
+* Use `$1`, `$2` and so on to refer to the command line parameters.
+* If the number is larger than 9, use curly brackets `${n}`.
+* `$#` contains the number of parameters.
+* Use `${!#}` to refer the last parameter.
+
 Both `$*` and `$@` include all the command line parameters.
 The former takes all the parameters as a single word,
 while the latter takes all the parameters as separate words.
 
-### 4.2 Being Shifty
+### 4.2 Being shifty
 
 `shift` moves each parameter variable one position to the left by default.
 For example, after `shift` command,
-`$3` refer to the fourth parameter,
-`$2` refer to the third parameter,
-and `$1` refer to the second parameter.
+`$3` refers to the fourth parameter,
+`$2` refers to the third parameter,
+and `$1` refers to the second parameter.
 Note that `$0` always refers to the script name.
 
 You can use `shift` to work with options.
@@ -313,131 +265,56 @@ while [ -n "$1" ]; do
 done
 ```
 
-The `shift` command can change the values of `$*` and `$@`.
-This is used to separate options from other parameters.
+Usually the Linux-style command looks like `command options parameter`,
+and some options even requre another parameters, such as
 
 ```bash
-while [ -n "$1" ]; do
-    case "$1" in
-        -a)
-            commands
-            ;;
-        --)
-            shift
-            break
-            ;;
-        *)
-            echo "Error"
-            ;;
-    esac
-    shift
-done
-
-for var in "$@"; do
-    commands
-done
+ls -a
+rm -rf file
+curl -o outputfile url
 ```
 
-For some options with values, here is an example:
+In such cases, `getopts` is a better choice rather than `shift`.
 
 ```bash
-while [ -n "$1" ]; do
-    case "$1" in
-        -a)
-            commands
-            ;;
-        -b)
-            val="$2"
-            shift
-            ;;
-        --)
-            shift
-            break
-            ;;
-        *)
-            echo "Error"
-            ;;
-    esac
-    shift
-done
-
-for var in "$@"; do
-    commands
-done
+getopts optstring opt
 ```
 
-There is another parameter style, such as `tar -xvf foobar.tar`.
-`getopt` can help.
-
-```bash
-getopt optstring paramters
-```
-
-The `optstring` list valid option letters.
-A colon is placed after option letters requiring a value.
+The `optstring` lists all valid option characters.
+A colon after a character means the option requires a value.
+Each time it is invoked, an option is assigned in `opt`,
+and the index of next option is assigned in `OPTIND`.
+If the option requres a value, it will be stored in `OPTARG`.
+Thus `OPTIND` should be initialized as 1 at first.
 Here is an example.
 
 ```bash
-set -- $(getopt -q a:b "$@")
-while [ -n "$1" ]; do
-    case "$1" in
-        -a)
-            commands
-            ;;
-        -b)
-            val="$2"
-            shift
-            ;;
-        --)
-            shift
-            break
-            ;;
-        *)
-            echo "Error"
-            ;;
-    esac
-    shift
-done
-
-for var in "$@"; do
-    commands
-done
-```
-
-`getopts` provides more features.
-
-```bash
-getopts optstring variable
-```
-
-Instead of producing output for all parameters,
-`getopts` works on parameters sequentially.
-The `getopts` command uses `OPTARG` to contain the value,
-and `OPTIND` to contain the current location where `getopts` left off.
-Here is an example.
-
-```bash
-while getopts a:b opt; do
+OPTIND=1
+while getopts a:bc opt; do
     case "$opt" in
         a)
+            # store value in val
+            val=$OPTARG
             commands
             ;;
         b)
-            echo "The value has been passed to $OPTARG"
+            commands
             ;;
+        c)
+            commands
         *)
             echo "Error"
             ;;
     esac
 done
 
-shift $[$OPTIND-1]
+shift $(($OPTIND-1))
 for var in "$@"; do
     commands
 done
 ```
 
-### 4.3 Getting User Input
+### 4.3 Get user input
 
 There are two forms of `read` command:
 
@@ -483,52 +360,27 @@ cat file.txt | while read line; do
 done
 ```
 
-## 5. Presenting Data
+## 5. File descriptors
 
-The bash shell reserves three file descriptors:
-STDIN (0), STDOUT (1) and STDERR (2).
-
-### 5.1 Redirecting Errors
-
-Only redirect errors.
-
-```bash
-command 2> outputfile
-```
-
-Redirect both errors and data.
-
-```bash
-command 1> outputfile1 2> outputfile2
-```
-
-Redirect errors and data to one file
-
-```bash
-command &> outputfile
-```
-
-### 5.2 Redirecting to a File Descriptor
+### 5.1 Redirect to a file descriptor
 
 ```bash
 command >&2
 ```
 
-### 5.3 Redirecting File Descriptors
-
-Redirecting a file descriptor to files.
+### 5.2 Redirect a file descriptor to files
 
 ```bash
-exec 1>outputfile
-exec 0<inputfile
+exec 1>file1
+exec 0<file2
 ```
 
-### 5.4 Creating Your Own File Descriptors
+### 5.3 Create your own file descriptors
 
 ```bash
-exec 3>outputfile
-exec 4<inputfile
-exec 5<>rwfile
+exec 3>file1
+exec 4<file2
+exec 5<>file3
 ```
 
 Save the STDIN/STDOUT file descriptor location to another file descriptor
@@ -536,14 +388,14 @@ temporarily to read/write a file.
 
 ```bash
 exec 3>&1
-exec 1>outputfile
-echo "hello world" # write to file
+exec 1>file1
+echo "hello world" # write to file1
 exec 1>&3
 echo "hello world" # write to STDOUT
 
 exec 3<&0
-exec 0<inputfile
-read var # read from file
+exec 0<file2
+read var # read from file2
 exec 0<&3
 read var # read from STDIN
 ```
@@ -554,37 +406,7 @@ Close file descriptors.
 exec 3>&-
 ```
 
-### 5.5 Suppressing Output
-
-```bash
-command > /dev/null
-```
-
-### 5.6 Using Temporary Files
-
-Creating a temporary file.
-
-```bash
-mktemp filename.XXXXXX.log
-mktemp -t filename.XXXXXX.log
-```
-
-### 5.7 Logging Messages
-
-Sending output both to the monitor and to a file.
-
-```bash
-command | tee filename
-```
-
-## 6. Script Control
-
-### 6.1 Handling Signals
-
-The bash shell allows you to generate two basic signals using key combinations:
-
-* Ctrl+C to interrupt a process
-* Ctrl+Z to Pause a process
+## 6. Trap signals
 
 To trap signals in a script:
 
@@ -604,84 +426,11 @@ To trap a script exit
 trap commands EXIT
 ```
 
-### 6.2 Running Scripts in Background Mode
+## 7. Create functions
 
-To run a shell script in background mode,
-just place an ampersand symbol.
+### 7.1 Basic script functions
 
-```bash
-command &
-```
-
-Note that it still uses your terminal monitor for STDOUT and STDERR.
-If the terminal session exits, the background process also exits.
-
-### 6.3 Running Scripts without a Hang-Up
-
-To let the script run in background mode until it finishes,
-even if exiting the terminal session:
-
-```bash
-nohup command &
-```
-
-The `nohup` command disassociates the process from the terminal,
-thus it redirects STDOUT and STDERR to `nohup.out` file.
-Be careful if you run multiple commands using `nohup`.
-All output is appended to `nohup.out`.
-
-### 6.4 Controlling the Job
-
-List the current jobs handled by the shell.
-
-```bash
-jobs -l
-```
-
-Restart the stopped jobs.
-
-```bash
-# in background mode
-bg job_number
-
-# in foreground mode
-fg job_number
-```
-
-### 6.5 Being Nice
-
-Set the scheduling priority.
-
-```bash
-nice -n priority
-renice -n priority -p pid
-```
-
-### 6.6 Running Like Clockwork
-
-Schedule a job at some time.
-
-```bash
-at -f filename time
-
-# list pending jobs
-atq
-
-# rm job from pending job queue
-atrm job_number
-```
-
-Schedule regular jobs
-
-```bash
-min hour dayofmonth month dayofweek command
-```
-
-## 7. Creating Functions
-
-### 7.1 Basic Script Functions
-
-There are two form to define a function:
+There are two forms to define a function.
 
 ```bash
 # form 1
@@ -695,7 +444,7 @@ name() {
 }
 ```
 
-### 7.2 Returning a Value
+### 7.2 Return a value
 
 The return statement is different from other programming languages.
 It return the exit status of the function.
@@ -723,7 +472,7 @@ function func {
 output=$(func)
 ```
 
-### 7.3 Using Variables in Functions
+### 7.3 Use variables in functions
 
 The bash shell treats functions just like scripts.
 You can pass parameters to a function just like a regular script.
@@ -751,7 +500,7 @@ echo "var=$var"
 ```
 
 To avoid modifying the value defined outside functions,
-you can use loal variables.
+you can use local variables.
 
 ```bash
 var=1
@@ -765,7 +514,7 @@ func
 echo "var=$var"
 ```
 
-### 7.4 Array Variables and Functions
+### 7.4 Array variables and functions
 
 Passing an array to a function is very confusing.
 
@@ -780,7 +529,7 @@ myarray1=(1 2 3)
 myarray2=($(func $myarray1))
 ```
 
-### 7.5 Function Recursion
+### 7.5 Function recursion
 
 ```bash
 function func {
@@ -790,15 +539,15 @@ function func {
 }
 ```
 
-### 7.6 Creating a Library
+### 7.6 Create a library
 
-To use functions defined in other script file:
+To use functions defined in other script files:
 
 ```bash
 source script_file.sh
 ```
 
-### 7.7 Using Functions on the Command Line
+### 7.7 Use functions on the command line
 
 Define functions in the `.bashrc` file,
 then you can use them in the command line.
