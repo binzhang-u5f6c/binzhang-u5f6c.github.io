@@ -3,7 +3,7 @@ title: "Sed and Awk"
 date: 2020-09-30T21:50:47+08:00
 draft: false
 toc: true
-mathjax: false
+math: false
 tags:
   - linux
 ---

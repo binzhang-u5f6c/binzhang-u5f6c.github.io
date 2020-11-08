@@ -3,7 +3,7 @@ title: "{{ replace .Name "-" " " | title }}"
 date: {{ .Date }}
 draft: true
 toc: true
-mathjax: false
+math: false
 tags:
   - untagged
 ---

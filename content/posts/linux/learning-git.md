@@ -3,7 +3,7 @@ title: "Learning Git"
 date: 2020-04-16T20:34:15+08:00
 draft: false
 toc: true
-mathjax: false
+math: false
 tags:
   - linux
 ---

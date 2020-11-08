@@ -3,7 +3,7 @@ title: "Learning Linux"
 date: 2020-06-11T21:25:13+08:00
 draft: false
 toc: true
-mathjax: false
+math: false
 tags:
   - linux
 ---

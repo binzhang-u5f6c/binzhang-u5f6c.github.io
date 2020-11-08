@@ -3,7 +3,7 @@ title: "Shell Scripting"
 date: 2020-08-06T21:33:42+08:00
 draft: false
 toc: true
-mathjax: false
+math: false
 tags:
   - linux
 ---

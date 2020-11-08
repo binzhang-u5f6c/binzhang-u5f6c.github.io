@@ -3,7 +3,7 @@ title: "Getting Started"
 date: 2020-05-18T21:19:27+08:00
 draft: false
 toc: true
-mathjax: true
+math: true
 tags:
   - algorithms
 ---
@@ -12,20 +12,27 @@ tags:
 
 Insertion sort is implemented below.
 
-```python
-def insertion_sort(a):
-    for j in range(1, len(a)):
-        key = a[j]
-        i = j - 1
-        while (i >= 0) and (a[i] > key):
-            a[i+1] = a[i]
-            i -= 1
-        a[i+1] = key
-    return a
+```c
+void insertion_sort(int *a, int n)
+{
+    int i, j, temp;
+    for (i = 1; i < n; ++i)
+    {
+        temp = a[i];
+        j = i - 1;
+        while (j >= 0 && a[j] > temp)
+        {
+            a[j+1] = a[j];
+            j -= 1;
+        }
+        a[j+1] = temp;
+    }
+    return;
+}
 ```
 
 We use **loop invariants** to proof the correctness of our algorithm.
-A loop invariant include three parts:
+A loop invariant includes three parts:
 
 * It's true prior to the first iteration.
 * If it's true before an iteration, it remain true before the next iteration.
@@ -41,31 +48,43 @@ We use the idea of **divide-and-conquer** to design a sort algorithm,
 merge sort.
 It is implemented below.
 
-```python
-def merge(a, b, sentinel=True):
-    m, n = len(a), len(b)
-    c = list(range(m+n))
-    i, j = 0, 0
-    a.append(0xffffffff)
-    b.append(0xffffffff)
-    for k in range(m+n):
-        if a[i] <= b[j]:
-            c[k] = a[i]
-            i += 1
-        else:
-            c[k] = b[j]
-            j += 1
-    return c
+```c
+#include <stdlib.h>
 
+void merge(int *a, int b, int m, int e)
+{
+    int i, j, k;
+    int *a1 = malloc(sizeof(int)*(m-b+2));
+    for (i = b; i <= m; ++i)
+        a1[i-b] = a[i];
+    a1[m-b+1] = 0x7FFFFFFF;
+    int *a2 = malloc(sizeof(int)*(e-m+1));
+    for (j = m+1; j <= e; ++j)
+        a2[j-m-1] = a[j];
+    a2[e-m] = 0x7FFFFFFF;
 
-def merge_sort(a):
-    n = len(a)
-    if n >= 2:
-        m = n // 2
-        b = merge_sort(a[:m])
-        c = merge_sort(a[m:])
-        a = merge(b, c, False)
-    return a
+    i = 0; j = 0;
+    for (k = b; k <= e; ++k)
+    {
+        if (a1[i] <= a2[j])
+            {a[k] = a1[i]; ++i;}
+        else
+            {a[k] = a2[j]; ++j;}
+    }
+    return;
+}
+
+void merge_sort(int *a, int b, int e)
+{
+    if (e > b)
+    {
+        int m = (e + b) / 2;
+        merge_sort(a, b, m);
+        merge_sort(a, m+1, e);
+        merge(a, b, m, e);
+    }
+    return;
+}
 ```
 
 The worst-case running time of merge sort is \\(\Theta(n\log n)\\).
