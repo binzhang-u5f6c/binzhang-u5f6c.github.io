@@ -61,6 +61,7 @@ void permute_by_sorting(int *a, int n)
         p[j+1] = temp_p;
         a[j+1] = temp_a;
     }
+    free(p);
     return;
 }
 

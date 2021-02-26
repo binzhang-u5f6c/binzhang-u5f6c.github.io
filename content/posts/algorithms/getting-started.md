@@ -54,11 +54,11 @@ It is implemented below.
 void merge(int *a, int b, int m, int e)
 {
     int i, j, k;
-    int *a1 = malloc(sizeof(int)*(m-b+2));
+    int *a1 = (int *) malloc(sizeof(int)*(m-b+2));
     for (i = b; i <= m; ++i)
         a1[i-b] = a[i];
     a1[m-b+1] = 0x7FFFFFFF;
-    int *a2 = malloc(sizeof(int)*(e-m+1));
+    int *a2 = (int *) malloc(sizeof(int)*(e-m+1));
     for (j = m+1; j <= e; ++j)
         a2[j-m-1] = a[j];
     a2[e-m] = 0x7FFFFFFF;
@@ -71,10 +71,11 @@ void merge(int *a, int b, int m, int e)
         else
             {a[k] = a2[j]; ++j;}
     }
+    free(a1); free(a2);
     return;
 }
 
-void merge_sort(int *a, int b, int e)
+void merge_sort_r(int *a, int b, int e)
 {
     if (e > b)
     {
@@ -83,6 +84,12 @@ void merge_sort(int *a, int b, int e)
         merge_sort(a, m+1, e);
         merge(a, b, m, e);
     }
+    return;
+}
+
+void merge_sort(int *a, int n)
+{
+    merge_sort_r(a, 0, n-1);
     return;
 }
 ```

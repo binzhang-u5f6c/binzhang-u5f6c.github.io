@@ -26,7 +26,7 @@ the value is not smaller than that of its parent.
 
 ## 2. Maintaining the heap property
 
-The algorithm are implemented below.
+The algorithm is implemented below.
 
 ```c
 void max_heapify(int *a, int n, int i)
@@ -50,7 +50,7 @@ void max_heapify(int *a, int n, int i)
 
 ## 3. Building a heap
 
-The algorithm are implemented below.
+The algorithm is implemented below.
 
 ```c
 void build_max_heap(int *a, int n)
@@ -64,7 +64,7 @@ void build_max_heap(int *a, int n)
 
 ## 4. The heapsort algorithm
 
-The algorithm are implemented below.
+The algorithm is implemented below.
 
 ```c
 void heap_sort(int *a, int n)
@@ -82,3 +82,4 @@ void heap_sort(int *a, int n)
 }
 ```
 
+The running time of heapsort is \\(O(n\log n)\\).
