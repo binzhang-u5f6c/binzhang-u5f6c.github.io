@@ -1,7 +1,7 @@
 ---
 title: "Elementary Data Structures"
 date: 2021-03-17T19:02:31+08:00
-draft: true
+draft: false
 toc: true
 math: true
 tags:
