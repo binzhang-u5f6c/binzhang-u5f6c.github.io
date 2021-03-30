@@ -95,26 +95,26 @@ in which the order is determined by a pointer in each object.
 An integer double linked list with a sentinel is implemented below.
 
 ```c
-struct element
+struct object
 {
     int key;
-    struct element *prev, *next;
+    struct object *prev, *next;
 };
 
 struct linked_list
 {
-    struct element *sentinel;
+    struct object *sentinel;
 };
 
-struct element* list_search(struct linked_list *L, int k)
+struct object* list_search(struct linked_list *L, int k)
 {
-    struct element *re = L->sentinel->next;
+    struct object *re = L->sentinel->next;
     while (re != L->sentinel && re->key != k)
         re = re->next;
     return re;
 }
 
-void list_insert(struct linked_list *L, struct element *x)
+void list_insert(struct linked_list *L, struct object *x)
 {
     x->next = L->sentinel->next;
     L->sentinel->next->prev = x;
@@ -123,7 +123,7 @@ void list_insert(struct linked_list *L, struct element *x)
     return;
 }
 
-void list_delete(struct linked_list *L, struct element *x)
+void list_delete(struct linked_list *L, struct object *x)
 {
     x->prev->next = x->next;
     x->next->prev = x->prev;
