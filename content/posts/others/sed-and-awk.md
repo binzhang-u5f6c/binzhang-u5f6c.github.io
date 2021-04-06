@@ -5,7 +5,7 @@ draft: false
 toc: true
 math: false
 tags:
-  - linux
+  - others
 ---
 
 ## 1. Sed

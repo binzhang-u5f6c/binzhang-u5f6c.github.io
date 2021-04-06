@@ -4,7 +4,7 @@ date: 2018-04-17T22:05:30+08:00
 draft: false
 toc: true
 tags:
-  - literature
+  - 读书笔记
 ---
 
 ## 1. 是一面镜子还是一束灯光
