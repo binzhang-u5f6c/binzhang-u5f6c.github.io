@@ -62,6 +62,10 @@ void inorder_tree_walk(struct object *x)
     return;
 }
 
+/***********
+*  search  *
+***********/
+
 struct object *tree_search(struct object *x, int k)
 {
     if (x == NULL || k == x->key)
@@ -106,6 +110,10 @@ struct object *tree_predecessor(struct object *x)
     return y;
 }
 
+/**************
+*  insertion  *
+**************/
+
 void tree_insert(struct binary_search_tree *T, struct object *z)
 {
     struct object *x = T->root, *y = NULL;
@@ -126,6 +134,10 @@ void tree_insert(struct binary_search_tree *T, struct object *z)
         y->right = z;
     return;
 }
+
+/*************
+*  deletion  *
+*************/
 
 void transplant(struct binary_search_tree *T,
                 struct object *u,

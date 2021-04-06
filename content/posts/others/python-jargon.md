@@ -1,7 +1,7 @@
 ---
 title: "Python Jargon"
 date: 2021-04-05T20:33:12+08:00
-draft: true
+draft: false
 toc: true
 math: false
 tags:
