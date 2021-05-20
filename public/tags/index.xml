@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Bin Zhang</title>
+    <link>https://binzhang-u5f6c.github.io/tags/</link>
+    <description>Recent content in Tags on Bin Zhang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 15 Apr 2021 19:25:45 +0800</lastBuildDate><atom:link href="https://binzhang-u5f6c.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>algorithms</title>
+      <link>https://binzhang-u5f6c.github.io/tags/algorithms/index.json</link>
+      <pubDate>Thu, 15 Apr 2021 19:25:45 +0800</pubDate>
+      
+      <guid>https://binzhang-u5f6c.github.io/tags/algorithms/index.json</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>多余的话</title>
+      <link>https://binzhang-u5f6c.github.io/tags/%E5%A4%9A%E4%BD%99%E7%9A%84%E8%AF%9D/index.json</link>
+      <pubDate>Mon, 05 Apr 2021 23:49:16 +0800</pubDate>
+      
+      <guid>https://binzhang-u5f6c.github.io/tags/%E5%A4%9A%E4%BD%99%E7%9A%84%E8%AF%9D/index.json</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>others</title>
+      <link>https://binzhang-u5f6c.github.io/tags/others/index.json</link>
+      <pubDate>Wed, 30 Sep 2020 21:50:47 +0800</pubDate>
+      
+      <guid>https://binzhang-u5f6c.github.io/tags/others/index.json</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>读书笔记</title>
+      <link>https://binzhang-u5f6c.github.io/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/index.json</link>
+      <pubDate>Tue, 17 Apr 2018 22:05:30 +0800</pubDate>
+      
+      <guid>https://binzhang-u5f6c.github.io/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/index.json</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
