@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <title>
+      
+          Augmenting Data Structures - Bin Zhang
+      
+  </title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Bin Zhang" />
+  <link rel="shortcut icon" type="image/x-icon" href="https://binzhang-u5f6c.github.io/img/favicon.png">
+
+  
+  
+  
+  
+  
+  <link rel="stylesheet" href="https://binzhang-u5f6c.github.io/style.min.39acacc5d2051426f655a6b7fbf4786fbd0fd8fffd09322c9b497ef0f7439b3f.css" integrity="sha256-OaysxdIFFCb2Vaa3&#43;/R4b70P2P/9CTIsm0l&#43;8PdDmz8=">
+  
+  
+  
+  <link rel="stylesheet" href="https://binzhang-u5f6c.github.io/style-dark.min.0a647fb6c07e04b77b54fa0515d0a683d39ecdb251dba960fe1f966f7ff36fc2.css" media="(prefers-color-scheme: dark)" integrity="sha256-CmR/tsB&#43;BLd7VPoFFdCmg9OezbJR26lg/h&#43;Wb3/zb8I=">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+  
+  
+  <link rel="stylesheet" href="https://binzhang-u5f6c.github.io/css/custom.css">
+  
+
+  <meta property="og:title" content="Augmenting Data Structures" />
+<meta property="og:description" content="1. Dynamic order statistics Via adding a new attribute size in a red-black tree, we can determine any order statistic in \(O(n)\) time. The size refer to the number of nodes of the subtree whose root is the node. It is called order-statistic tree.
+2. How to augment a data structure  Choose an underlying data structure. Determine additional information to maintain in the underlying data structure. Verify that we can maintain the additional information for the basic modifying operations on the underlying data structure." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://binzhang-u5f6c.github.io/posts/augmenting-data-structures/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-04-08T19:41:17&#43;08:00" />
+<meta property="article:modified_time" content="2021-04-08T19:41:17&#43;08:00" />
+
+<meta itemprop="name" content="Augmenting Data Structures">
+<meta itemprop="description" content="1. Dynamic order statistics Via adding a new attribute size in a red-black tree, we can determine any order statistic in \(O(n)\) time. The size refer to the number of nodes of the subtree whose root is the node. It is called order-statistic tree.
+2. How to augment a data structure  Choose an underlying data structure. Determine additional information to maintain in the underlying data structure. Verify that we can maintain the additional information for the basic modifying operations on the underlying data structure."><meta itemprop="datePublished" content="2021-04-08T19:41:17&#43;08:00" />
+<meta itemprop="dateModified" content="2021-04-08T19:41:17&#43;08:00" />
+<meta itemprop="wordCount" content="87">
+<meta itemprop="keywords" content="algorithms," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:image" content="https://binzhang-u5f6c.github.io/img/avatar.jpg"/>
+<meta name="twitter:title" content="Augmenting Data Structures"/>
+<meta name="twitter:description" content="1. Dynamic order statistics Via adding a new attribute size in a red-black tree, we can determine any order statistic in \(O(n)\) time. The size refer to the number of nodes of the subtree whose root is the node. It is called order-statistic tree.
+2. How to augment a data structure  Choose an underlying data structure. Determine additional information to maintain in the underlying data structure. Verify that we can maintain the additional information for the basic modifying operations on the underlying data structure."/>
+
+  <!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+  <![endif]-->
+
+  <!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+  <![endif]-->
+
+  
+  
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[','\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
+    TeX: {
+      equationNumbers: { autoNumber: "AMS" },
+      extensions: ["AMSmath.js", "AMSsymbols.js"]
+    }
+  }
+})
+</script>
+
+  
+</head>
+
+  <body>
+    
+  <h1>Augmenting Data Structures</h1>
+  <header>
+  
+  <div class="avatar">
+    <img class="avatarMask" src="https://binzhang-u5f6c.github.io/img/avatar.jpg" alt="">
+    <a href="https://binzhang-u5f6c.github.io"><img class="avatar-border" src="https://binzhang-u5f6c.github.io/img/avatar-border.svg" alt=""></a>
+  </div>
+  
+  <h2><a class="author" href="https://binzhang-u5f6c.github.io">Bin Zhang</a></h2>
+</header>
+
+  
+  
+  
+  <p class="date">April 8, 2021</p>
+  
+  
+  
+  <div id="tags">
+    <ul>
+      
+        
+        
+          <li><a href="https://binzhang-u5f6c.github.io/tags/algorithms/">algorithms</a></li>
+        
+      
+    </ul>
+  </div>
+  
+  
+  <div id="contentBody">
+    <h2 id="1-dynamic-order-statistics">1. Dynamic order statistics</h2>
+<p>Via adding a new attribute <code>size</code> in a red-black tree,
+we can determine any order statistic in \(O(n)\) time.
+The <code>size</code> refer to the number of nodes of the subtree
+whose root is the node.
+It is called <strong>order-statistic tree</strong>.</p>
+<h2 id="2-how-to-augment-a-data-structure">2. How to augment a data structure</h2>
+<ul>
+<li>Choose an underlying data structure.</li>
+<li>Determine additional information to maintain
+in the underlying data structure.</li>
+<li>Verify that we can maintain the additional information
+for the basic modifying operations on the underlying data structure.</li>
+<li>Develop new operations.</li>
+</ul>
+
+  </div>
+  <footer>
+  <p>
+  &copy;  Bin Zhang.
+  Powered by <a href="https://gohugo.io/">Hugo</a>
+  using the <a href="https://github.com/koirand/pulp/">pulp</a> theme.
+  </p>
+</footer><script src="https://binzhang-u5f6c.github.io/js/custom.js"></script>
+
+
+
+  </body>
+</html>

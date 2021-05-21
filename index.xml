@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Bin Zhang</title>
+    <link>https://binzhang-u5f6c.github.io/</link>
+    <description>Recent content on Bin Zhang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 15 Apr 2021 19:25:45 +0800</lastBuildDate><atom:link href="https://binzhang-u5f6c.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Dynamic Programming</title>
+      <link>https://binzhang-u5f6c.github.io/posts/dynamic-programming/</link>
+      <pubDate>Thu, 15 Apr 2021 19:25:45 +0800</pubDate>
+      
+      <guid>https://binzhang-u5f6c.github.io/posts/dynamic-programming/</guid>
+      <description>1. Rod cutting Three versions of rod cutting algorithms are implemented below.
+#include &amp;lt;stdlib.h&amp;gt; int cut_rod(int *p, int n) { if (n == 0) return 0; int i, q = -0x7fffffff; for (i = 0; i &amp;lt; n; ++i) { int temp_q = p[i] + cut_rod(p, n-i-1); q = temp_q &amp;gt; q ? temp_q : q; } return q; } int memoized_cut_rod_aux(int *p, int n, int *r) { if (n == 0) return 0; if (r[n-1] &amp;gt;= 0) return r[n-1]; int i, q = -0x7fffffff; for (i = 0; i &amp;lt; n; ++i) { int temp_q = p[i] + memoized_cut_rod_aux(p, n-i-1, r); q = temp_q &amp;gt; q ?</description>
+    </item>
+    
+    <item>
+      <title>Augmenting Data Structures</title>
+      <link>https://binzhang-u5f6c.github.io/posts/augmenting-data-structures/</link>
+      <pubDate>Thu, 08 Apr 2021 19:41:17 +0800</pubDate>
+      
+      <guid>https://binzhang-u5f6c.github.io/posts/augmenting-data-structures/</guid>
+      <description>1. Dynamic order statistics Via adding a new attribute size in a red-black tree, we can determine any order statistic in \(O(n)\) time. The size refer to the number of nodes of the subtree whose root is the node. It is called order-statistic tree.
+2. How to augment a data structure  Choose an underlying data structure. Determine additional information to maintain in the underlying data structure. Verify that we can maintain the additional information for the basic modifying operations on the underlying data structure.</description>
+    </item>
+    
+    <item>
+      <title>张大路传奇</title>
+      <link>https://binzhang-u5f6c.github.io/posts/%E5%BC%A0%E5%A4%A7%E8%B7%AF%E4%BC%A0%E5%A5%87/</link>
+      <pubDate>Mon, 05 Apr 2021 23:49:16 +0800</pubDate>
+      
+      <guid>https://binzhang-u5f6c.github.io/posts/%E5%BC%A0%E5%A4%A7%E8%B7%AF%E4%BC%A0%E5%A5%87/</guid>
+      <description>张大路的名字叫张大路。 “大路”的意思就是很马虎，甚至有些糊涂，无论对什么事都不在乎。
+张大路喜欢网上冲浪。 他点开了第一篇帖子，叫做《 北京第一代“鸡娃”给大家讲讲内卷教育的切肤之痛 》， 讲的是一位北京女孩从小被妈妈”鸡“， 上辅导班，参加跨区招生考试， 高中的时候发表文章，去美国交换， 最终考上了北京电影学院导演系，当上编剧、作者的故事。 舞文弄墨，靠写一点东西来养活自己，是张大路从小的梦想。 要是在混一口饭之余，还能有钱买几本书读，那就更好了。 但是张大路并不擅长写作，他费劲脑汁蹦出的几个字并没有人愿意读， 扔到垃圾堆里也要被分类成有害垃圾。 张大路很羡慕能靠写作谋生的人。 人家是北儿京儿人儿，资源好，文字又很有灵性，高中就能发表文章， 自己怎么和人家比呢，张大路这样安慰自己。
+张大路点开了第二篇帖子，《 太苦了，听说这位自动化所的博士在工业界， 我一个男的看都想给他一个拥抱 》。 贴子是一位穷苦出身的男孩的博士论文致谢， 讲述了自己求学之路的经历。 帖子的主角跟随自动化所的一名九袋长老学习机器翻译， 并进入工业界继续在该领域发光发热。 这让张大路的内心十分羡慕。 张大路也梦想过研究机器翻译。 在发现自己的写作之路走不通后， 张大路觉得自己狗嘴吐不出象牙，那可不可以做翻译呢？ 把他国的象牙翻译成中国的象牙，也算是功德一件。 但张大路的外文也不好，他的全国大学生六级考试只有484分。 看上去张大路的翻译之路也要断绝了， 但是随着神经网络[1, 2]和attention机制[3]的发展， 机器翻译的质量发生了翻天覆地的飞跃。 去研究机器翻译似乎是一种曲线救国的路线呢，张大路这样想道。 目前国内机器翻译研究水平最高的就是该就职于自动化所的九袋长老。 张大路发现自己的一位亲戚居然也就职于自动化所， 就想托亲戚的关系套一下瓷。 就在这临门一脚的时刻，张大路自己却耸了，觉得自己配不上拜九袋长老为师。 后来又一次偶然的机会，张大路又去蹭了本校一位长老开设的高性能计算讲坛, 发现讲坛的内容对机器翻译所依赖的GPU计算的调优大有裨益， 研究一下高性能计算，可以说是曲线救国的曲线救国。 于是又想跟随该长老继续学习，却因编程经验不足而被拒绝。 当然，在仔细研究了神经机器翻译的原理后， 张大路觉得这种基于“编码-解码”的过程不能称之为翻译， 又不想做机器翻译了，这是后话了。
+张大路是学过数学分析的， 亲眼目睹两个人过上了自己的梦想（或者曾经的）人生， 一个家境优渥，一个出身困苦， 根据夹逼定理，自己也应该过着差不多的人生啊，为什么自己混成了现在这样子呢？
+张大路是学习金融数学的，曾经立志做一名quant在墙街呼风唤雨。 做quant编程是免不了的，张大路却在学习期间发现，编程真是太有趣了， 自己为什么不做一名coder呢？ 在大三的暑假，张大路郑重地决定，我要考计算机的研究生。 整个大三暑假，张大路都在阅读《算法导论》。 他看着红黑树左转又右转，插入又删除，把自己都看晕了。 张大路不禁问自己，自己这几斤几两真的能行吗？ 还好之前抱大腿，混了一个保研名额，要不先在本校读个研究生，再图后计。 于是张大路读了本校的研究生。 张大路继续磨练自己的编程手艺，以图他日投身coding事业。 就在张大路准备找实习的时候，一个出国读博的机会跳到了他的面前， 还是当前最火的机器学习方向。 送到嘴边的肥肉总不能不吃啊，张大路想道。 于是张大路去了国外读博。 回顾自己的前半生，张大路不禁感慨道，自己真是人如其名啊。 张大路的一生，是大路的一生。 从金融数学转专业计算机，放弃考研，出国读博， 每一步选择都太随意，被一时头脑发热所支配。 过于随意的选择，以及自身的懒惰，导致张大路的人生跳出了夹逼。</description>
+    </item>
+    
+    <item>
+      <title>Red-Black Trees</title>
+      <link>https://binzhang-u5f6c.github.io/posts/red-black-trees/</link>
+      <pubDate>Thu, 01 Apr 2021 19:45:29 +0800</pubDate>
+      
+      <guid>https://binzhang-u5f6c.github.io/posts/red-black-trees/</guid>
+      <description>1. Properties of red-black trees A red-black tree is a binary search tree with one extra attribute per node: its color, which can be either RED or BLACK.
+As a matter of convenience, we introduce a single sentinel and all leaf nodes point to this sentinel. A red-black tree satisfies the following properties:
+ Every node is either red or black. The root is black. The sentinel is black. If a node is red, then both its children are black.</description>
+    </item>
+    
+    <item>
+      <title>Binary Search Trees</title>
+      <link>https://binzhang-u5f6c.github.io/posts/binary-search-trees/</link>
+      <pubDate>Tue, 30 Mar 2021 19:43:21 +0800</pubDate>
+      
+      <guid>https://binzhang-u5f6c.github.io/posts/binary-search-trees/</guid>
+      <description>What is a binary search tree? A binary search tree is organized in a binary tree. The tree is represented by a linked data structure in which each node is an object. In addition to a key and satellite data, each object contains 3 more attributes: left, right and parent
+The keys in a binary search tree are always stored in such a way as to satify that for each node in a binary search tree, the key of any node in its left subtree is smaller than its own key, and the key of any node in its right subtree is larger than its own key,</description>
+    </item>
+    
+    <item>
+      <title>Hash Tables</title>
+      <link>https://binzhang-u5f6c.github.io/posts/hash-tables/</link>
+      <pubDate>Sun, 28 Mar 2021 20:30:53 +0800</pubDate>
+      
+      <guid>https://binzhang-u5f6c.github.io/posts/hash-tables/</guid>
+      <description>1. Direct-address tables To represent a dynamic set in which the keys are drawn from a small universe, we use a direct-address table, in which each slot corresponds to a key in the universe.
+2. Hash tables Hash tables is similar to direct-address tables. With direct addressing, an element with key \(k\) is stored in slot \(k\). With hashing, an element with key \(k\) is stored in slot \(h(k)\), where \(h\) is a hash function.</description>
+    </item>
+    
+    <item>
+      <title>Elementary Data Structures</title>
+      <link>https://binzhang-u5f6c.github.io/posts/elementary-data-structures/</link>
+      <pubDate>Wed, 17 Mar 2021 19:02:31 +0800</pubDate>
+      
+      <guid>https://binzhang-u5f6c.github.io/posts/elementary-data-structures/</guid>
+      <description>1. Stacks and queues Stacks and queues are dynamic sets. The stack implements a last-in, first-out policy, while the queue implements a first-in, first-out policy.
+An integer stack of size 1024 is implemented below.
+#include &amp;lt;stdlib.h&amp;gt;#include &amp;lt;stdio.h&amp;gt; struct stack { int a[1024]; int top; }; void push(struct stack *s, int x) { if (s-&amp;gt;top == 1023) { fprintf(stderr, &amp;#34;Overflow!\n&amp;#34;); exit(1); } ++s-&amp;gt;top; s-&amp;gt;a[s-&amp;gt;top] = x; return; } int pop(struct stack *s) { if (s-&amp;gt;top == -1) { fprintf(stderr, &amp;#34;Underflow!</description>
+    </item>
+    
+    <item>
+      <title>Medians and Order Statistics</title>
+      <link>https://binzhang-u5f6c.github.io/posts/medians-and-order-statistics/</link>
+      <pubDate>Mon, 01 Mar 2021 20:02:04 +0800</pubDate>
+      
+      <guid>https://binzhang-u5f6c.github.io/posts/medians-and-order-statistics/</guid>
+      <description>The \(i\)th order statistic of a set of \(n\) elements is the \(i\)th smallest element.
+A selection problem is to select the \(i\)th order statistic from a set of \(n\) distinct numbers.
+1. Minimum and maximum Every element except the winner must lose once in a comparison. Hence \(n-1\) comparisions are necessary to determine the minimum. The algorithm is implemented below.
+int minimum(int *a, int n) { int i, min = a[0]; for (i = 1; i &amp;lt; n; ++i) if (min &amp;gt; a[i]) min = a[i]; return min; } If we want to find the minimum and maximum simultaneously, only \(3\lfloor n/2 \rfloor\) comparisions are necessary.</description>
+    </item>
+    
+    <item>
+      <title>Sorting in Linear Time</title>
+      <link>https://binzhang-u5f6c.github.io/posts/sorting-in-linear-time/</link>
+      <pubDate>Fri, 26 Feb 2021 21:11:15 +0800</pubDate>
+      
+      <guid>https://binzhang-u5f6c.github.io/posts/sorting-in-linear-time/</guid>
+      <description>1. Lower bounds for sorting Any comparision sort algorithm requires \(\Omega(n \log n)\) comparisions int the worst case.
+2. Counting sort The counting sort algorithm is implemented below.
+#include &amp;lt;stdlib.h&amp;gt; void counting_sort(int *a, int n, int k) { int *b = (int *) malloc(sizeof(int)*n); int *c = (int *) malloc(sizeof(int)*k); int i; for (i = 0; i &amp;lt; k; ++i) c[i] = 0; for (i = 0; i &amp;lt; n; ++i) ++c[a[i]]; for (i = 1; i &amp;lt; k; ++i) c[i] += c[i-1]; for (i = n-1; i &amp;gt;= 0; --i) { b[c[a[i]]-1] = a[i]; --c[a[i]]; } for (i = 0; i &amp;lt; n; ++i) a[i] = b[i]; free(b); free(c); return; } 3.</description>
+    </item>
+    
+    <item>
+      <title>Quicksort</title>
+      <link>https://binzhang-u5f6c.github.io/posts/quicksort/</link>
+      <pubDate>Fri, 26 Feb 2021 20:17:11 +0800</pubDate>
+      
+      <guid>https://binzhang-u5f6c.github.io/posts/quicksort/</guid>
+      <description>1. Description of quicksort The quicksort algorithm is implemented below.
+int partition(int *a, int b, int e) { int ae = a[e]; int i = b - 1, j = b; for (; j &amp;lt; e; ++j) { if (a[j] &amp;lt;= ae) { ++i; int temp = a[i]; a[i] = a[j]; a[j] = temp; } } a[e] = a[i+1]; a[i+1] = ae; return i + 1; } void quicksort_r(int *a, int b, int e) { if (b &amp;lt; e) { int m = partition(a, b, e); quicksort_r(a, b, m-1); quicksort_r(a, m+1, e); } return; } void quicksort(int *a, int n) { quicksort_r(a, 0, n-1); return; } 2.</description>
+    </item>
+    
+    <item>
+      <title>Heapsort</title>
+      <link>https://binzhang-u5f6c.github.io/posts/heapsort/</link>
+      <pubDate>Wed, 24 Feb 2021 19:41:13 +0800</pubDate>
+      
+      <guid>https://binzhang-u5f6c.github.io/posts/heapsort/</guid>
+      <description>1. Heaps The heap data structure is an array that can be viewed as nearly complete binary tree. The tree is completely filled on all levels except possibly the lowest, which is filled from the left up to a point. The parent index of the \(i\)th element is \(\lceil i/2 \rceil -1\), the left child index is \(2i+1\), and the right child index is \(2i+2\).
+There are two kinds of heaps, max-heap and min-heap.</description>
+    </item>
+    
+    <item>
+      <title>Probabilistic Analysis and Randomized Algorithms</title>
+      <link>https://binzhang-u5f6c.github.io/posts/probabilistic-analysis-and-randomized-algorithms/</link>
+      <pubDate>Mon, 22 Feb 2021 19:34:56 +0800</pubDate>
+      
+      <guid>https://binzhang-u5f6c.github.io/posts/probabilistic-analysis-and-randomized-algorithms/</guid>
+      <description>1. The hiring problem We have used worst-case analysis in the previous analysis of problems. Another approach is probabilistic analysis, in which we analyze algorithms via average-case running time.
+2. Indicator random variables The indicator random variable associated with event \(A\) is defined as [I(A) = \begin{cases} 1 &amp;amp; \text{if \(A\) occurs,} \\
+0 &amp;amp; \text{if \(A\) does not occur.} \end{cases}]
+Using indicator random variables, we obtain the average-case hiring cost of the hiring problem is \(O(c \log n)\).</description>
+    </item>
+    
+    <item>
+      <title>泥泞</title>
+      <link>https://binzhang-u5f6c.github.io/posts/%E6%B3%A5%E6%B3%9E/</link>
+      <pubDate>Fri, 01 Jan 2021 00:48:22 +0800</pubDate>
+      
+      <guid>https://binzhang-u5f6c.github.io/posts/%E6%B3%A5%E6%B3%9E/</guid>
+      <description>一场大雪给2020年画上了终止符。大清早起来，窗外的世界已是银装素裹。雪一直都是人们赞美的对象，它洁白无暇，冰清玉洁，往往是高洁的象征。但是当白雪融化，美好的一切却又变了样。
+每当这个时候，我总会想起高中做的一篇现代文阅读，迟子建的《泥泞》。我也记不清整个高中总共做过多少篇现代文阅读，甚至记不清高考的现代文阅读是哪篇，但这篇却总在我的记忆里不曾被忘记。 迟子建说，北方的初春是肮脏的，这肮脏当然源自于我们曾经热烈赞美过的纯洁无瑕的雪。 在不那么靠北的地方，不需要等到初春，太阳出来不久，雪就已经开始融化。早起的做题家和打工人匆匆走过，雪地上的脚印一层叠着一层，洁白的雪也从白色变成灰色，又变成黑色。太阳渐渐升高，雪渐渐融化，雪水将灰尘和剩下的还未融化的雪混合在一起，变成了可乐味的碎碎冰。
+迟子建说她“热爱这种浑然天成的泥泞”，我可一点都不喜欢。我小心翼翼地走在碎碎冰里，混合着泥污的雪吸附在我的鞋边，就像在我的鞋上围了一层抹布。脚步要是稍微重一点的话，泥水便会溅到裤子上。可总不能因为怕脏，就不往前走了。要是走雪路，就放开了在雪地撒欢；要是走泥路，就慢慢地轻轻地走；要是泥水结了冰，就小步小步地往前挪。不一样地路有不一样地走法，或快或慢，有潇洒也有狼狈，总不能因为不愿弄脏裤子就停步不前，更不能因为前路结冰就被吓得尿裤子。
+前路未卜，但行无妨。走一个虎虎生风，走一个一日千里，走一个恍如隔世。</description>
+    </item>
+    
+    <item>
+      <title>Sed and Awk</title>
+      <link>https://binzhang-u5f6c.github.io/posts/sed-and-awk/</link>
+      <pubDate>Wed, 30 Sep 2020 21:50:47 +0800</pubDate>
+      
+      <guid>https://binzhang-u5f6c.github.io/posts/sed-and-awk/</guid>
+      <description>1. Sed # read from stdin and execute command sed &amp;#39;command&amp;#39; # read from a file and execute command sed &amp;#39;command&amp;#39; filename # read from a file and execute multiple commands sed &amp;#39;command1; command2&amp;#39; filename sed &amp;#39; command1 command2&amp;#39; filename 1.1 Address and pattern You can specify lines to which the command is applied using address. The address can be a line number 2, or a range of lines 2,3.</description>
+    </item>
+    
+    <item>
+      <title>Divide-and-Conquer</title>
+      <link>https://binzhang-u5f6c.github.io/posts/divide-and-conquer/</link>
+      <pubDate>Mon, 17 Aug 2020 21:45:26 +0800</pubDate>
+      
+      <guid>https://binzhang-u5f6c.github.io/posts/divide-and-conquer/</guid>
+      <description>1. The maximum-subarray problem The algorithm is implemented below.
+void find_maximum_subarray(int *a, int *low, int *high) { if (*low == *high) return; int mid = (*low + *high) / 2, i; // left recursion  int low1 = *low, high1 = mid; find_maximum_subarray(a, &amp;amp;low1, &amp;amp;high1); int max1 = 0; for (i = low1; i &amp;lt;= high1; ++i) max1 += a[i]; // right recursion  int low2 = mid+1, high2 = *high; find_maximum_subarray(a, &amp;amp;low2, &amp;amp;high2); int max2 = 0; for (i = low2; i &amp;lt;= high2; ++i) max2 += a[i]; // subarray across mid point  // left part  int low3, sum_left = 0, max3_left = a[mid]; for (i = mid; i &amp;gt;= *low; --i) { sum_left += a[i]; if (sum_left &amp;gt;= max3_left) {low3 = i; max3_left = sum_left;} } // right part  int high3, sum_right = 0, max3_right = a[mid+1]; for (i = mid+1; i &amp;lt;= *high; ++i) { sum_right += a[i]; if (sum_right &amp;gt;= max3_right) {high3 = i; max3_right = sum_right;} } // merge  int max3 = max3_left + max3_right; // return  if (max1 &amp;gt;= max2 &amp;amp;&amp;amp; max1 &amp;gt;= max3) {*low = low1; *high = high1;} else if (max2 &amp;gt;= max3) {*low = low2; *high = high2;} else {*low = low3; *high = high3;} return; } 2.</description>
+    </item>
+    
+    <item>
+      <title>Shell Scripting</title>
+      <link>https://binzhang-u5f6c.github.io/posts/shell-scripting/</link>
+      <pubDate>Thu, 06 Aug 2020 21:33:42 +0800</pubDate>
+      
+      <guid>https://binzhang-u5f6c.github.io/posts/shell-scripting/</guid>
+      <description>1. Basic scripting building 1.1 Display messages Use echo to display messages.
+echo &amp;#34;Hello world!&amp;#34; 1.2 Use variables Define and reference a variable.
+val=10 echo ${val} In most cases, the curly brackets can be ignored.
+val=str # ignore curly brackets echo $val # ignoring curly brackets will lead to error echo ${val}ing Define and reference an array.
+a[0]=1 echo ${a[0]} # or a = (1 2 3) echo ${a[0]} Note: bash treats all values as string.</description>
+    </item>
+    
+    <item>
+      <title>Growth of Functions</title>
+      <link>https://binzhang-u5f6c.github.io/posts/growth-of-functions/</link>
+      <pubDate>Mon, 20 Jul 2020 21:30:08 +0800</pubDate>
+      
+      <guid>https://binzhang-u5f6c.github.io/posts/growth-of-functions/</guid>
+      <description>1. Asymptotic notation \(\Theta\)-notation: \(f(n) \in \Theta(g(n))\) if there exist positive constants \(c_1, c_2, n_0\), such that for all \(n \geq n_0\),
+[0 \leq c_1 g(n) \leq f(n) \leq c_2 g(n)]
+\(O\)-notation: \(f(n) \in O(g(n))\) if there exist positive constants \(c, n_0\), such that for all \(n \geq n_0\),
+[0 \leq f(n) \leq c g(n)]
+\(\Omega\)-notation: \(f(n) \in \Omega(g(n))\) if there exist positive constants \(c, n_0\), such that for all \(n \geq n_0\),</description>
+    </item>
+    
+    <item>
+      <title>Learning Linux</title>
+      <link>https://binzhang-u5f6c.github.io/posts/learning-linux/</link>
+      <pubDate>Thu, 11 Jun 2020 21:25:13 +0800</pubDate>
+      
+      <guid>https://binzhang-u5f6c.github.io/posts/learning-linux/</guid>
+      <description>1. Basic commands Navigate the filesystem &amp;amp; manipulate directories and files.
+   name description     cd change directory   ls list   cp copy   mv move   rm remove   ln create links   mkdir create directories    View the contents of files.
+   name description     file determine file type   cat view entire contents of a file   less view entire contents of a file   head view top lines of a file   tail view bottom lines of a file    Monitor system status.</description>
+    </item>
+    
+    <item>
+      <title>Getting Started</title>
+      <link>https://binzhang-u5f6c.github.io/posts/getting-started/</link>
+      <pubDate>Mon, 18 May 2020 21:19:27 +0800</pubDate>
+      
+      <guid>https://binzhang-u5f6c.github.io/posts/getting-started/</guid>
+      <description>1. Insertion sort Insertion sort is implemented below.
+void insertion_sort(int *a, int n) { int i, j, temp; for (i = 1; i &amp;lt; n; ++i) { temp = a[i]; j = i - 1; while (j &amp;gt;= 0 &amp;amp;&amp;amp; a[j] &amp;gt; temp) { a[j+1] = a[j]; j -= 1; } a[j+1] = temp; } return; } We use loop invariants to proof the correctness of our algorithm. A loop invariant includes three parts:</description>
+    </item>
+    
+    <item>
+      <title>The Role of Algorithms in Computing</title>
+      <link>https://binzhang-u5f6c.github.io/posts/the-role-of-algorithms-in-computing/</link>
+      <pubDate>Mon, 04 May 2020 20:39:08 +0800</pubDate>
+      
+      <guid>https://binzhang-u5f6c.github.io/posts/the-role-of-algorithms-in-computing/</guid>
+      <description>1. Algorithms An algorithm is any well-defined computational procedure. A data structure is a way to store and organize data in order to facilitate access and modifications.
+2. Algorithms as a technology Since computers are not infinitely fast, and memory is not free, efficient algorithms are important. A usual measure of efficiency is speed.</description>
+    </item>
+    
+    <item>
+      <title>Learning Git</title>
+      <link>https://binzhang-u5f6c.github.io/posts/learning-git/</link>
+      <pubDate>Thu, 16 Apr 2020 20:34:15 +0800</pubDate>
+      
+      <guid>https://binzhang-u5f6c.github.io/posts/learning-git/</guid>
+      <description>1. Git Basics Initializing a repository.
+git init Clone a repository.
+git clone &amp;lt;url&amp;gt; &amp;lt;path&amp;gt; Track new files or stage modified file.
+git add &amp;lt;file&amp;gt; Remove and move files.
+git rm &amp;lt;file&amp;gt; git mv &amp;lt;file&amp;gt; Commit all staged files.
+git commit git commit --amend # commit to your last commit Check the status.
+git status Show commit history.
+git log git log --patch # show the difference Work with remotes.</description>
+    </item>
+    
+    <item>
+      <title>文学是什么</title>
+      <link>https://binzhang-u5f6c.github.io/posts/%E6%96%87%E5%AD%A6%E6%98%AF%E4%BB%80%E4%B9%88/</link>
+      <pubDate>Tue, 17 Apr 2018 22:05:30 +0800</pubDate>
+      
+      <guid>https://binzhang-u5f6c.github.io/posts/%E6%96%87%E5%AD%A6%E6%98%AF%E4%BB%80%E4%B9%88/</guid>
+      <description>1. 是一面镜子还是一束灯光 文学是什么，人们喜欢用比喻来表述。 不同的比喻代表着不同的文学观，代表着不同的美学观。
+镜与灯，是对文学最为流行的比喻。 镜子的比喻把文学理解成写实的、再现的， 而烛光的比喻则把文学看成是创造的、表现的。 在古老的镜子比喻的背后，是古老的模仿理论。 模仿论认为，文学创作是对世界的模仿，并不是创造。 模仿说在后来的发展中，受新写实主义的影响，演化成再现说。 新写实主义认为，“模仿”这个词语，意味着摹本并不是被模仿的事实事物； 它也可能意味着摹本的价值比较低。 灯的比喻背后是表现说。 表现说认为文学艺术是对人类主观世界的表现。
+文学究竟是表现还是再现，实际上这两种说法都是有问题的。
+ 文学的再现不是纯粹的再现，绝对的再现是根本不可能的 表现说也存在问题，而且问题更复杂。 对“表现”本身的理解主要有两种，一是对感情的表现，一是对想象世界的表现。  在西方，在卢梭和歌德的时代之前，艺术的模仿理论始终被奉为不可更易的信条。 卢梭认为，艺术并不是对经验世界的描绘和复写，而是情感和感情的流溢。 可是把情感当成文学唯一的本质因素，这与再现说并无不同， 文学仍是再现，只不过不是对物理事实、社会事实的再现， 而是对心理事实的再现。 文学中描写的情感与现实中的情感相比在性质上已经发生了变化， 这种变化的核心就是形式化，而形式化的关键是抓住情感的本质， 使文学中的情感超越了日常情感，达于审美情感。 这种形式化不限于感情，文学对现实的再现也一定是形式化的 文学同样不是想象。想象只是形式化的手段。    形式化使得文学一定程度上与纯粹的主观世界相分离， 也一定程度上与纯粹的客观世界相分离。 文学中实际有两个世界：一方面，文学是有限的、再现的、经验的世界， 它既可以是物理事实、社会事实，也可以是人的情感世界； 另一方面，文学是无限的、象征的、超验的，文学总要借有限而达于无限。
+注：这里关于形式化的描述，我读得似懂非懂， 感觉是说的是艾布拉姆斯的《镜与灯》中描述的作品、宇宙、作家、读者之间的关系。 作品能够再现世界（即宇宙）事实，表现作家的情感和想象， 但从作品和读者之间的关系来看，作品中的事、情早已不是原来的事、情， 而是形式化的事、情，能够与读者与自己的经历和感情相联系， 所谓“一千个人眼中有一千个哈姆雷特”，即“文学总要借有限而达于无限”。
+2. 文学是语言艺术吗 语言是文学的物质媒介。语言给文学带来的东西是其他任何艺术都无法比拟的。
+ 语言丰富的词汇、明晰的含义、严密的语法， 使文学更易于描写和表现广阔的社会现实生活和丰富的内心感情世界。 语言给文学带来了艺术形象的非直观性，文学比其他直观的艺术更加耐人寻味。 “语言是思想的直接现实”（马克思），是的文学作品与思想关系紧密。 语言媒介给文学最为重要的东西是语言本身的审美因素，  语言的审美因素首先体现在语音方面，语音的审美因素主要体现在节奏和格律上， 这些审美效果在诗歌中体现的最为充分； 语言的审美因素还体现在修辞中。    学习语言，研究语言，锤炼语言，永远是作家的功课。
+文学超越了语言，这种超越是在美学层面上完成的。 使文学的物质媒介完全消失，创作出绝对自由的艺术的幻想世界， 这是伟大艺术的标准。
+审美经验用语言使难以表达的。 作家往往使用形象的语言、象征的方式来解决这一问题。 文学语言的形象化，以及象征方式的运用，并不是最终的目的，而是通向目的的途径， 最终形象化的语言和象征的方式被消解，展示给读者的是作家审美经验所编织的世界。
+我们说语言是文学的物质媒介，文学具有超语言性，但并不是所有作家都是如此。 有的作家只在语言层面，充分利用语言本身的审美元素，创作华美的作品，如花间派； 超越语言进入更高的艺术境界，需要作家伟大的精神要素的保障，如陶渊明； 当然，也有在这二者寻求统一的，如杜甫。 所以如果把花间派的作品翻译成其他语言，恐怕会遇到麻烦， 因为这是一种特殊的、语言的艺术，不能转移； 但是陶渊明的作品译成另一种语言则问题不大，因为这是一种一般的、非语言的艺术， 可以转移到另一种语言而不受损失。</description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>https://binzhang-u5f6c.github.io/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://binzhang-u5f6c.github.io/about/</guid>
+      <description>Bin Zhang is a PhD candidate at University of Technology Sydney. His research interests lie in data mining and concept drift.
+He is attracted to Chinese traditional literature, especially Tang poetry.
+Education  B.S. in Mathematics, Shandong University, 2016  Skills  Shell scripting and other Linux utilities such as sed, gawk. Programming  c/c++ python    Publications  Zhang, B., Lu, J. &amp;amp; Zhang, G. 2019, &amp;lsquo;Drift adaptation via Joint Distribution Alignment.</description>
+    </item>
+    
+  </channel>
+</rss>
