@@ -36,15 +36,15 @@
 Using indicator random variables, we obtain the average-case hiring cost of the hiring problem is \(O(c \log n)\)." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://binzhang-u5f6c.github.io/posts/probabilistic-analysis-and-randomized-algorithms/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2021-02-22T19:34:56&#43;08:00" />
-<meta property="article:modified_time" content="2021-02-22T19:34:56&#43;08:00" />
+<meta property="article:published_time" content="2021-02-22T19:34:56+08:00" />
+<meta property="article:modified_time" content="2021-02-22T19:34:56+08:00" />
 
 <meta itemprop="name" content="Probabilistic Analysis and Randomized Algorithms">
 <meta itemprop="description" content="1. The hiring problem We have used worst-case analysis in the previous analysis of problems. Another approach is probabilistic analysis, in which we analyze algorithms via average-case running time.
 2. Indicator random variables The indicator random variable associated with event \(A\) is defined as [I(A) = \begin{cases} 1 &amp; \text{if \(A\) occurs,} \\
 0 &amp; \text{if \(A\) does not occur.} \end{cases}]
-Using indicator random variables, we obtain the average-case hiring cost of the hiring problem is \(O(c \log n)\)."><meta itemprop="datePublished" content="2021-02-22T19:34:56&#43;08:00" />
-<meta itemprop="dateModified" content="2021-02-22T19:34:56&#43;08:00" />
+Using indicator random variables, we obtain the average-case hiring cost of the hiring problem is \(O(c \log n)\)."><meta itemprop="datePublished" content="2021-02-22T19:34:56+08:00" />
+<meta itemprop="dateModified" content="2021-02-22T19:34:56+08:00" />
 <meta itemprop="wordCount" content="264">
 <meta itemprop="keywords" content="algorithms," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:image" content="https://binzhang-u5f6c.github.io/img/avatar.jpg"/>
@@ -140,7 +140,7 @@ An algorithm is <strong>randomized</strong>
 if its behavior is determined not only by its input
 but also by values produced by a random-number generator.</p>
 <p>The permuting arrays algorithms are implemented below.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdlib.h&gt;</span><span style="color:#75715e">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdlib.h&gt;</span><span style="color:#75715e">
 </span><span style="color:#75715e"></span>
 <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">permute_by_sorting</span>(<span style="color:#66d9ef">int</span> <span style="color:#f92672">*</span>a, <span style="color:#66d9ef">int</span> n)
 {

@@ -34,13 +34,13 @@
 int partition(int *a, int b, int e) { int ae = a[e]; int i = b - 1, j = b; for (; j &lt; e; &#43;&#43;j) { if (a[j] &lt;= ae) { &#43;&#43;i; int temp = a[i]; a[i] = a[j]; a[j] = temp; } } a[e] = a[i&#43;1]; a[i&#43;1] = ae; return i &#43; 1; } void quicksort_r(int *a, int b, int e) { if (b &lt; e) { int m = partition(a, b, e); quicksort_r(a, b, m-1); quicksort_r(a, m&#43;1, e); } return; } void quicksort(int *a, int n) { quicksort_r(a, 0, n-1); return; } 2." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://binzhang-u5f6c.github.io/posts/quicksort/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2021-02-26T20:17:11&#43;08:00" />
-<meta property="article:modified_time" content="2021-02-26T20:17:11&#43;08:00" />
+<meta property="article:published_time" content="2021-02-26T20:17:11+08:00" />
+<meta property="article:modified_time" content="2021-02-26T20:17:11+08:00" />
 
 <meta itemprop="name" content="Quicksort">
 <meta itemprop="description" content="1. Description of quicksort The quicksort algorithm is implemented below.
-int partition(int *a, int b, int e) { int ae = a[e]; int i = b - 1, j = b; for (; j &lt; e; &#43;&#43;j) { if (a[j] &lt;= ae) { &#43;&#43;i; int temp = a[i]; a[i] = a[j]; a[j] = temp; } } a[e] = a[i&#43;1]; a[i&#43;1] = ae; return i &#43; 1; } void quicksort_r(int *a, int b, int e) { if (b &lt; e) { int m = partition(a, b, e); quicksort_r(a, b, m-1); quicksort_r(a, m&#43;1, e); } return; } void quicksort(int *a, int n) { quicksort_r(a, 0, n-1); return; } 2."><meta itemprop="datePublished" content="2021-02-26T20:17:11&#43;08:00" />
-<meta itemprop="dateModified" content="2021-02-26T20:17:11&#43;08:00" />
+int partition(int *a, int b, int e) { int ae = a[e]; int i = b - 1, j = b; for (; j &lt; e; &#43;&#43;j) { if (a[j] &lt;= ae) { &#43;&#43;i; int temp = a[i]; a[i] = a[j]; a[j] = temp; } } a[e] = a[i&#43;1]; a[i&#43;1] = ae; return i &#43; 1; } void quicksort_r(int *a, int b, int e) { if (b &lt; e) { int m = partition(a, b, e); quicksort_r(a, b, m-1); quicksort_r(a, m&#43;1, e); } return; } void quicksort(int *a, int n) { quicksort_r(a, 0, n-1); return; } 2."><meta itemprop="datePublished" content="2021-02-26T20:17:11+08:00" />
+<meta itemprop="dateModified" content="2021-02-26T20:17:11+08:00" />
 <meta itemprop="wordCount" content="230">
 <meta itemprop="keywords" content="algorithms," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:image" content="https://binzhang-u5f6c.github.io/img/avatar.jpg"/>
@@ -114,7 +114,7 @@ MathJax.Hub.Config({
   <div id="contentBody">
     <h2 id="1-description-of-quicksort">1. Description of quicksort</h2>
 <p>The quicksort algorithm is implemented below.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">partition</span>(<span style="color:#66d9ef">int</span> <span style="color:#f92672">*</span>a, <span style="color:#66d9ef">int</span> b, <span style="color:#66d9ef">int</span> e)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">partition</span>(<span style="color:#66d9ef">int</span> <span style="color:#f92672">*</span>a, <span style="color:#66d9ef">int</span> b, <span style="color:#66d9ef">int</span> e)
 {
     <span style="color:#66d9ef">int</span> ae <span style="color:#f92672">=</span> a[e];
     <span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> b <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>, j <span style="color:#f92672">=</span> b;
@@ -156,7 +156,7 @@ And the running time is \(\Theta(n^2)\).</p>
 <p>The expected running time is \(\Theta(n\log n)\).</p>
 <h2 id="3-a-randomized-version-of-quicksort">3. A randomized version of quicksort</h2>
 <p>The randomized_quicksort algorithm is implemented below.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdlib.h&gt;</span><span style="color:#75715e">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdlib.h&gt;</span><span style="color:#75715e">
 </span><span style="color:#75715e"></span>
 <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">randomized_partition</span>(<span style="color:#66d9ef">int</span> <span style="color:#f92672">*</span>a, <span style="color:#66d9ef">int</span> b, <span style="color:#66d9ef">int</span> e)
 {

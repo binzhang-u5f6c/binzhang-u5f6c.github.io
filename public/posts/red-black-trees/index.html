@@ -35,14 +35,14 @@ As a matter of convenience, we introduce a single sentinel and all leaf nodes po
  Every node is either red or black. The root is black. The sentinel is black. If a node is red, then both its children are black." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://binzhang-u5f6c.github.io/posts/red-black-trees/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2021-04-01T19:45:29&#43;08:00" />
-<meta property="article:modified_time" content="2021-04-01T19:45:29&#43;08:00" />
+<meta property="article:published_time" content="2021-04-01T19:45:29+08:00" />
+<meta property="article:modified_time" content="2021-04-01T19:45:29+08:00" />
 
 <meta itemprop="name" content="Red-Black Trees">
 <meta itemprop="description" content="1. Properties of red-black trees A red-black tree is a binary search tree with one extra attribute per node: its color, which can be either RED or BLACK.
 As a matter of convenience, we introduce a single sentinel and all leaf nodes point to this sentinel. A red-black tree satisfies the following properties:
- Every node is either red or black. The root is black. The sentinel is black. If a node is red, then both its children are black."><meta itemprop="datePublished" content="2021-04-01T19:45:29&#43;08:00" />
-<meta itemprop="dateModified" content="2021-04-01T19:45:29&#43;08:00" />
+ Every node is either red or black. The root is black. The sentinel is black. If a node is red, then both its children are black."><meta itemprop="datePublished" content="2021-04-01T19:45:29+08:00" />
+<meta itemprop="dateModified" content="2021-04-01T19:45:29+08:00" />
 <meta itemprop="wordCount" content="963">
 <meta itemprop="keywords" content="algorithms," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:image" content="https://binzhang-u5f6c.github.io/img/avatar.jpg"/>
@@ -137,7 +137,7 @@ A red-black tree with \(n\) nodes has height at most \(2\log(n+1)\).</p>
 <p>To keep the properties while insertion and deletion,
 new operation <strong>rotation</strong> is necessary.</p>
 <p>An interger red-black tree is implemented below.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdlib.h&gt;</span><span style="color:#75715e">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdlib.h&gt;</span><span style="color:#75715e">
 </span><span style="color:#75715e"></span>
 <span style="color:#66d9ef">struct</span> object
 {

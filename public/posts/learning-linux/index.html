@@ -35,14 +35,14 @@
    name description     file determine file type   cat view entire contents of a file   less view entire contents of a file   head view top lines of a file   tail view bottom lines of a file    Monitor system status." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://binzhang-u5f6c.github.io/posts/learning-linux/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2020-06-11T21:25:13&#43;08:00" />
-<meta property="article:modified_time" content="2020-06-11T21:25:13&#43;08:00" />
+<meta property="article:published_time" content="2020-06-11T21:25:13+08:00" />
+<meta property="article:modified_time" content="2020-06-11T21:25:13+08:00" />
 
 <meta itemprop="name" content="Learning Linux">
 <meta itemprop="description" content="1. Basic commands Navigate the filesystem &amp; manipulate directories and files.
    name description     cd change directory   ls list   cp copy   mv move   rm remove   ln create links   mkdir create directories    View the contents of files.
-   name description     file determine file type   cat view entire contents of a file   less view entire contents of a file   head view top lines of a file   tail view bottom lines of a file    Monitor system status."><meta itemprop="datePublished" content="2020-06-11T21:25:13&#43;08:00" />
-<meta itemprop="dateModified" content="2020-06-11T21:25:13&#43;08:00" />
+   name description     file determine file type   cat view entire contents of a file   less view entire contents of a file   head view top lines of a file   tail view bottom lines of a file    Monitor system status."><meta itemprop="datePublished" content="2020-06-11T21:25:13+08:00" />
+<meta itemprop="dateModified" content="2020-06-11T21:25:13+08:00" />
 <meta itemprop="wordCount" content="1191">
 <meta itemprop="keywords" content="others," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:image" content="https://binzhang-u5f6c.github.io/img/avatar.jpg"/>
@@ -233,14 +233,14 @@
 <h2 id="2-run-commands-in-shell">2. Run commands in shell</h2>
 <h3 id="21-io-redirection">2.1 IO redirection</h3>
 <p>Redirect output.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># overwriting the file</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># overwriting the file</span>
 command &gt; file
 <span style="color:#75715e"># appending output to the file</span>
 command &gt;&gt; file
 <span style="color:#75715e"># suppressing output.</span>
 command &gt; /dev/null
 </code></pre></div><p>Redirect input.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">command &lt; inputfile
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">command &lt; inputfile
 <span style="color:#75715e"># inline input redirection</span>
 command <span style="color:#e6db74">&lt;&lt; marker
 </span><span style="color:#e6db74">data
@@ -249,14 +249,14 @@ command <span style="color:#e6db74">&lt;&lt; marker
 We have to refer to its <strong>file descriptor</strong>.
 The bash shell reserves the first three file descriptors as
 STDIN (0), STDOUT (1) and STDERR (2).</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">command 2&gt; file
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">command 2&gt; file
 </code></pre></div><p>Redirect both output and errors.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">command 1&gt; file1 2&gt; file2
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">command 1&gt; file1 2&gt; file2
 command &amp;&gt; file
 </code></pre></div><h3 id="22-pipes">2.2 Pipes</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">command1 | command2
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">command1 | command2
 </code></pre></div><p>Use <code>tee</code> to construct a T pipe.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># the output of command1 will be saved to file and passed to command2</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># the output of command1 will be saved to file and passed to command2</span>
 command1 | tee file | command2
 </code></pre></div><p>Some commands can be a filter in pipes.</p>
 <table>
@@ -332,17 +332,17 @@ command1 | tee file | command2
 <p>Class include <code>[[:alnum:]]</code>, <code>[[:alpha:]]</code>, <code>[[:digit:]]</code>, <code>[[:lower:]]</code>
 and <code>[[:upper:]]</code>.</p>
 <p>Pathname expansion.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># list all txt files</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># list all txt files</span>
 ls *.txt
 <span style="color:#75715e"># tilde for home directory</span>
 cd ~
 </code></pre></div><p>Arithmetic expansion.
 It only supports integer arithmetic.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#66d9ef">$((</span>expression<span style="color:#66d9ef">))</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#66d9ef">$((</span>expression<span style="color:#66d9ef">))</span>
 <span style="color:#75715e"># the result is 2</span>
 echo <span style="color:#66d9ef">$((</span><span style="color:#ae81ff">5</span><span style="color:#f92672">/</span><span style="color:#ae81ff">2</span><span style="color:#66d9ef">))</span>
 </code></pre></div><p>Brace expansion.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># the result is &#34;file1 file2 file3&#34;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># the result is &#34;file1 file2 file3&#34;</span>
 echo file<span style="color:#f92672">{</span>1,2,3<span style="color:#f92672">}</span>
 <span style="color:#75715e"># use range</span>
 echo file<span style="color:#f92672">{</span>1..3<span style="color:#f92672">}</span>
@@ -350,25 +350,25 @@ echo file<span style="color:#f92672">{</span>1..3<span style="color:#f92672">}</
 <span style="color:#75715e"># the result is &#34;file13 file14 file23 file 24&#34;</span>
 echo file<span style="color:#f92672">{</span>1<span style="color:#f92672">{</span>3,4<span style="color:#f92672">}</span>,2<span style="color:#f92672">{</span>3,4<span style="color:#f92672">}}</span>
 </code></pre></div><p>Variable expansion.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$var
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$var
 </code></pre></div><p>Command substitution.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#66d9ef">$(</span>command<span style="color:#66d9ef">)</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#66d9ef">$(</span>command<span style="color:#66d9ef">)</span>
 <span style="color:#e6db74">`</span>command<span style="color:#e6db74">`</span>
 </code></pre></div><p>Double quoting.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># all characters are treated as ordinary characters</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># all characters are treated as ordinary characters</span>
 <span style="color:#75715e"># except dollar sign, backslash and backquote</span>
 echo <span style="color:#e6db74">&#34;~ will not be expanded as home directory&#34;</span>
 echo <span style="color:#e6db74">&#34;</span>$var<span style="color:#e6db74"> still show the value of var&#34;</span>
 echo <span style="color:#e6db74">&#34;backslash is used to escape special characters such as \$&#34;</span>
 </code></pre></div><p>Single quoting.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># suppress all expansion</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># suppress all expansion</span>
 echo <span style="color:#e6db74">&#39;$(ls)&#39;</span>
 </code></pre></div><h3 id="24-jobs">2.4 Jobs</h3>
 <p>Run commands one after one.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">command1; command2
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">command1; command2
 </code></pre></div><p>Commands are run in foreground mode by default.
 Run commands in background mode.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># run in background</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># run in background</span>
 command &amp;
 <span style="color:#75715e"># show jobs launched from current terminal</span>
 jobs
@@ -377,7 +377,7 @@ fg %n
 </code></pre></div><p>If you exit the terminal session,
 all jobs, even in background mode, will be interrupted.
 To avoid this, run scripts without a hang-up.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">nohup command &amp;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">nohup command &amp;
 </code></pre></div><p>The <code>nohup</code> command disassociates the process from the terminal,
 thus it redirects STDOUT and STDERR to <code>nohup.out</code> file.
 Be careful if you run multiple commands using <code>nohup</code>.
@@ -385,7 +385,7 @@ All output is appended to <code>nohup.out</code>.</p>
 <p>Use Ctrl+C to interrupt the current-running job.
 Use Ctrl+Z to stop the current running job.
 Usually we use Ctrl+Z to move the current-running job to background.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">command
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">command
 <span style="color:#75715e"># stop by Ctrl+Z</span>
 <span style="color:#75715e"># show the job number</span>
 jobs
@@ -398,14 +398,14 @@ fg %n
 <p>Linux environment variables help to store system information,
 temporary data and configuration information.</p>
 <p>Define a environment variable.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">variable_name<span style="color:#f92672">=</span>variable_value
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">variable_name<span style="color:#f92672">=</span>variable_value
 echo $variable_name
 </code></pre></div><p>Define a global environment variable.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">variable_name<span style="color:#f92672">=</span>variable_value
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">variable_name<span style="color:#f92672">=</span>variable_value
 export variable_name
 echo $variable_name
 </code></pre></div><p>Add new path.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">PATH<span style="color:#f92672">=</span>$PATH:/your/new/path
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">PATH<span style="color:#f92672">=</span>$PATH:/your/new/path
 </code></pre></div><h2 id="4-file-permissions">4. File permissions</h2>
 <p>The permission of each file is in form of <code>-rwxrwxrwx</code>.
 The first character defines the type of the file.</p>
