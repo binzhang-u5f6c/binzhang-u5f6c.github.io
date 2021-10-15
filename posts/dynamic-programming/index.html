@@ -34,13 +34,13 @@
 #include &lt;stdlib.h&gt; int cut_rod(int *p, int n) { if (n == 0) return 0; int i, q = -0x7fffffff; for (i = 0; i &lt; n; &#43;&#43;i) { int temp_q = p[i] &#43; cut_rod(p, n-i-1); q = temp_q &gt; q ? temp_q : q; } return q; } int memoized_cut_rod_aux(int *p, int n, int *r) { if (n == 0) return 0; if (r[n-1] &gt;= 0) return r[n-1]; int i, q = -0x7fffffff; for (i = 0; i &lt; n; &#43;&#43;i) { int temp_q = p[i] &#43; memoized_cut_rod_aux(p, n-i-1, r); q = temp_q &gt; q ?" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://binzhang-u5f6c.github.io/posts/dynamic-programming/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2021-04-15T19:25:45&#43;08:00" />
-<meta property="article:modified_time" content="2021-04-15T19:25:45&#43;08:00" />
+<meta property="article:published_time" content="2021-04-15T19:25:45+08:00" />
+<meta property="article:modified_time" content="2021-04-15T19:25:45+08:00" />
 
 <meta itemprop="name" content="Dynamic Programming">
 <meta itemprop="description" content="1. Rod cutting Three versions of rod cutting algorithms are implemented below.
-#include &lt;stdlib.h&gt; int cut_rod(int *p, int n) { if (n == 0) return 0; int i, q = -0x7fffffff; for (i = 0; i &lt; n; &#43;&#43;i) { int temp_q = p[i] &#43; cut_rod(p, n-i-1); q = temp_q &gt; q ? temp_q : q; } return q; } int memoized_cut_rod_aux(int *p, int n, int *r) { if (n == 0) return 0; if (r[n-1] &gt;= 0) return r[n-1]; int i, q = -0x7fffffff; for (i = 0; i &lt; n; &#43;&#43;i) { int temp_q = p[i] &#43; memoized_cut_rod_aux(p, n-i-1, r); q = temp_q &gt; q ?"><meta itemprop="datePublished" content="2021-04-15T19:25:45&#43;08:00" />
-<meta itemprop="dateModified" content="2021-04-15T19:25:45&#43;08:00" />
+#include &lt;stdlib.h&gt; int cut_rod(int *p, int n) { if (n == 0) return 0; int i, q = -0x7fffffff; for (i = 0; i &lt; n; &#43;&#43;i) { int temp_q = p[i] &#43; cut_rod(p, n-i-1); q = temp_q &gt; q ? temp_q : q; } return q; } int memoized_cut_rod_aux(int *p, int n, int *r) { if (n == 0) return 0; if (r[n-1] &gt;= 0) return r[n-1]; int i, q = -0x7fffffff; for (i = 0; i &lt; n; &#43;&#43;i) { int temp_q = p[i] &#43; memoized_cut_rod_aux(p, n-i-1, r); q = temp_q &gt; q ?"><meta itemprop="datePublished" content="2021-04-15T19:25:45+08:00" />
+<meta itemprop="dateModified" content="2021-04-15T19:25:45+08:00" />
 <meta itemprop="wordCount" content="500">
 <meta itemprop="keywords" content="algorithms," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:image" content="https://binzhang-u5f6c.github.io/img/avatar.jpg"/>
@@ -114,7 +114,7 @@ MathJax.Hub.Config({
   <div id="contentBody">
     <h2 id="1-rod-cutting">1. Rod cutting</h2>
 <p>Three versions of rod cutting algorithms are implemented below.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdlib.h&gt;</span><span style="color:#75715e">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdlib.h&gt;</span><span style="color:#75715e">
 </span><span style="color:#75715e"></span>
 <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">cut_rod</span>(<span style="color:#66d9ef">int</span> <span style="color:#f92672">*</span>p, <span style="color:#66d9ef">int</span> n)
 {
@@ -192,7 +192,7 @@ a recursive algorithm revisits the same subproblems repeatly.</li>
 <h2 id="4-longest-common-subsequence">4. Longest common subsequence</h2>
 <p>A program to find the longest common subsequence of two strings
 is implemented below.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
 </span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdlib.h&gt;</span><span style="color:#75715e">
 </span><span style="color:#75715e"></span>
 <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">lcs_length</span>(<span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>x, <span style="color:#66d9ef">int</span> nx, <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>y, <span style="color:#66d9ef">int</span> ny, <span style="color:#66d9ef">int</span> <span style="color:#f92672">*</span>c, <span style="color:#66d9ef">int</span> <span style="color:#f92672">*</span>aux_c)

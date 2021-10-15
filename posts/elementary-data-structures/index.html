@@ -35,14 +35,14 @@ An integer stack of size 1024 is implemented below.
 #include &lt;stdlib.h&gt;#include &lt;stdio.h&gt; struct stack { int a[1024]; int top; }; void push(struct stack *s, int x) { if (s-&gt;top == 1023) { fprintf(stderr, &#34;Overflow!\n&#34;); exit(1); } &#43;&#43;s-&gt;top; s-&gt;a[s-&gt;top] = x; return; } int pop(struct stack *s) { if (s-&gt;top == -1) { fprintf(stderr, &#34;Underflow!" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://binzhang-u5f6c.github.io/posts/elementary-data-structures/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2021-03-17T19:02:31&#43;08:00" />
-<meta property="article:modified_time" content="2021-03-17T19:02:31&#43;08:00" />
+<meta property="article:published_time" content="2021-03-17T19:02:31+08:00" />
+<meta property="article:modified_time" content="2021-03-17T19:02:31+08:00" />
 
 <meta itemprop="name" content="Elementary Data Structures">
 <meta itemprop="description" content="1. Stacks and queues Stacks and queues are dynamic sets. The stack implements a last-in, first-out policy, while the queue implements a first-in, first-out policy.
 An integer stack of size 1024 is implemented below.
-#include &lt;stdlib.h&gt;#include &lt;stdio.h&gt; struct stack { int a[1024]; int top; }; void push(struct stack *s, int x) { if (s-&gt;top == 1023) { fprintf(stderr, &#34;Overflow!\n&#34;); exit(1); } &#43;&#43;s-&gt;top; s-&gt;a[s-&gt;top] = x; return; } int pop(struct stack *s) { if (s-&gt;top == -1) { fprintf(stderr, &#34;Underflow!"><meta itemprop="datePublished" content="2021-03-17T19:02:31&#43;08:00" />
-<meta itemprop="dateModified" content="2021-03-17T19:02:31&#43;08:00" />
+#include &lt;stdlib.h&gt;#include &lt;stdio.h&gt; struct stack { int a[1024]; int top; }; void push(struct stack *s, int x) { if (s-&gt;top == 1023) { fprintf(stderr, &#34;Overflow!\n&#34;); exit(1); } &#43;&#43;s-&gt;top; s-&gt;a[s-&gt;top] = x; return; } int pop(struct stack *s) { if (s-&gt;top == -1) { fprintf(stderr, &#34;Underflow!"><meta itemprop="datePublished" content="2021-03-17T19:02:31+08:00" />
+<meta itemprop="dateModified" content="2021-03-17T19:02:31+08:00" />
 <meta itemprop="wordCount" content="383">
 <meta itemprop="keywords" content="algorithms," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:image" content="https://binzhang-u5f6c.github.io/img/avatar.jpg"/>
@@ -120,7 +120,7 @@ MathJax.Hub.Config({
 The stack implements a <strong>last-in, first-out</strong> policy,
 while the queue implements a <strong>first-in, first-out</strong> policy.</p>
 <p>An integer stack of size 1024 is implemented below.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdlib.h&gt;</span><span style="color:#75715e">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdlib.h&gt;</span><span style="color:#75715e">
 </span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
 </span><span style="color:#75715e"></span>
 <span style="color:#66d9ef">struct</span> stack
@@ -152,7 +152,7 @@ while the queue implements a <strong>first-in, first-out</strong> policy.</p>
     <span style="color:#66d9ef">return</span> s<span style="color:#f92672">-&gt;</span>a[s<span style="color:#f92672">-&gt;</span>top<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>];
 }
 </code></pre></div><p>An integer queue of size 1024 is implemented below.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdlib.h&gt;</span><span style="color:#75715e">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdlib.h&gt;</span><span style="color:#75715e">
 </span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
 </span><span style="color:#75715e"></span>
 <span style="color:#66d9ef">struct</span> queue
@@ -188,7 +188,7 @@ while the queue implements a <strong>first-in, first-out</strong> policy.</p>
 <p>A <strong>linked list</strong> is a linear-arranged data structure
 in which the order is determined by a pointer in each object.</p>
 <p>An integer double linked list with a sentinel is implemented below.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#66d9ef">struct</span> object
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#66d9ef">struct</span> object
 {
     <span style="color:#66d9ef">int</span> key;
     <span style="color:#66d9ef">struct</span> object <span style="color:#f92672">*</span>prev, <span style="color:#f92672">*</span>next;
