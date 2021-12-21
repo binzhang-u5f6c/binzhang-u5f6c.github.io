@@ -151,8 +151,7 @@ There are two kinds of heaps, max-heap and min-heap.</description>
       
       <guid>https://binzhang-u5f6c.github.io/posts/probabilistic-analysis-and-randomized-algorithms/</guid>
       <description>1. The hiring problem We have used worst-case analysis in the previous analysis of problems. Another approach is probabilistic analysis, in which we analyze algorithms via average-case running time.
-2. Indicator random variables The indicator random variable associated with event \(A\) is defined as [I(A) = \begin{cases} 1 &amp;amp; \text{if \(A\) occurs,} \\
-0 &amp;amp; \text{if \(A\) does not occur.} \end{cases}]
+2. Indicator random variables The indicator random variable associated with event \(A\) is defined as [I(A) = \begin{cases} 1 &amp;amp; \text{if \(A\) occurs,} \\ 0 &amp;amp; \text{if \(A\) does not occur.} \end{cases}]
 Using indicator random variables, we obtain the average-case hiring cost of the hiring problem is \(O(c \log n)\).</description>
     </item>
     
@@ -258,24 +257,6 @@ git rm &amp;lt;file&amp;gt; git mv &amp;lt;file&amp;gt; Commit all staged files.
 git commit git commit --amend # commit to your last commit Check the status.
 git status Show commit history.
 git log git log --patch # show the difference Work with remotes.</description>
-    </item>
-    
-    <item>
-      <title>文学是什么</title>
-      <link>https://binzhang-u5f6c.github.io/posts/%E6%96%87%E5%AD%A6%E6%98%AF%E4%BB%80%E4%B9%88/</link>
-      <pubDate>Tue, 17 Apr 2018 22:05:30 +0800</pubDate>
-      
-      <guid>https://binzhang-u5f6c.github.io/posts/%E6%96%87%E5%AD%A6%E6%98%AF%E4%BB%80%E4%B9%88/</guid>
-      <description>1. 是一面镜子还是一束灯光 文学是什么，人们喜欢用比喻来表述。 不同的比喻代表着不同的文学观，代表着不同的美学观。
-镜与灯，是对文学最为流行的比喻。 镜子的比喻把文学理解成写实的、再现的， 而烛光的比喻则把文学看成是创造的、表现的。 在古老的镜子比喻的背后，是古老的模仿理论。 模仿论认为，文学创作是对世界的模仿，并不是创造。 模仿说在后来的发展中，受新写实主义的影响，演化成再现说。 新写实主义认为，“模仿”这个词语，意味着摹本并不是被模仿的事实事物； 它也可能意味着摹本的价值比较低。 灯的比喻背后是表现说。 表现说认为文学艺术是对人类主观世界的表现。
-文学究竟是表现还是再现，实际上这两种说法都是有问题的。
- 文学的再现不是纯粹的再现，绝对的再现是根本不可能的 表现说也存在问题，而且问题更复杂。 对“表现”本身的理解主要有两种，一是对感情的表现，一是对想象世界的表现。  在西方，在卢梭和歌德的时代之前，艺术的模仿理论始终被奉为不可更易的信条。 卢梭认为，艺术并不是对经验世界的描绘和复写，而是情感和感情的流溢。 可是把情感当成文学唯一的本质因素，这与再现说并无不同， 文学仍是再现，只不过不是对物理事实、社会事实的再现， 而是对心理事实的再现。 文学中描写的情感与现实中的情感相比在性质上已经发生了变化， 这种变化的核心就是形式化，而形式化的关键是抓住情感的本质， 使文学中的情感超越了日常情感，达于审美情感。 这种形式化不限于感情，文学对现实的再现也一定是形式化的 文学同样不是想象。想象只是形式化的手段。    形式化使得文学一定程度上与纯粹的主观世界相分离， 也一定程度上与纯粹的客观世界相分离。 文学中实际有两个世界：一方面，文学是有限的、再现的、经验的世界， 它既可以是物理事实、社会事实，也可以是人的情感世界； 另一方面，文学是无限的、象征的、超验的，文学总要借有限而达于无限。
-注：这里关于形式化的描述，我读得似懂非懂， 感觉是说的是艾布拉姆斯的《镜与灯》中描述的作品、宇宙、作家、读者之间的关系。 作品能够再现世界（即宇宙）事实，表现作家的情感和想象， 但从作品和读者之间的关系来看，作品中的事、情早已不是原来的事、情， 而是形式化的事、情，能够与读者与自己的经历和感情相联系， 所谓“一千个人眼中有一千个哈姆雷特”，即“文学总要借有限而达于无限”。
-2. 文学是语言艺术吗 语言是文学的物质媒介。语言给文学带来的东西是其他任何艺术都无法比拟的。
- 语言丰富的词汇、明晰的含义、严密的语法， 使文学更易于描写和表现广阔的社会现实生活和丰富的内心感情世界。 语言给文学带来了艺术形象的非直观性，文学比其他直观的艺术更加耐人寻味。 “语言是思想的直接现实”（马克思），是的文学作品与思想关系紧密。 语言媒介给文学最为重要的东西是语言本身的审美因素，  语言的审美因素首先体现在语音方面，语音的审美因素主要体现在节奏和格律上， 这些审美效果在诗歌中体现的最为充分； 语言的审美因素还体现在修辞中。    学习语言，研究语言，锤炼语言，永远是作家的功课。
-文学超越了语言，这种超越是在美学层面上完成的。 使文学的物质媒介完全消失，创作出绝对自由的艺术的幻想世界， 这是伟大艺术的标准。
-审美经验用语言使难以表达的。 作家往往使用形象的语言、象征的方式来解决这一问题。 文学语言的形象化，以及象征方式的运用，并不是最终的目的，而是通向目的的途径， 最终形象化的语言和象征的方式被消解，展示给读者的是作家审美经验所编织的世界。
-我们说语言是文学的物质媒介，文学具有超语言性，但并不是所有作家都是如此。 有的作家只在语言层面，充分利用语言本身的审美元素，创作华美的作品，如花间派； 超越语言进入更高的艺术境界，需要作家伟大的精神要素的保障，如陶渊明； 当然，也有在这二者寻求统一的，如杜甫。 所以如果把花间派的作品翻译成其他语言，恐怕会遇到麻烦， 因为这是一种特殊的、语言的艺术，不能转移； 但是陶渊明的作品译成另一种语言则问题不大，因为这是一种一般的、非语言的艺术， 可以转移到另一种语言而不受损失。</description>
     </item>
     
     <item>
